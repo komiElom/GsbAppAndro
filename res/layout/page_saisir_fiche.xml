@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+           <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Creation de la fiche de frais du mois" />
+    
+        <TextView
+        android:id="@+id/tTitreIdVisiteurFiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id du Visiteur" />
+    
+   <TextView
+        android:id="@+id/tAfficheurFiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affiche l'ID du Visiteur" />
+    
+ 
+    <TextView
+        android:id="@+id/tSaisiPeriode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisi le mois de la Fiche" />
+
+    <EditText
+        android:id="@+id/edPeriode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/bSuivantSaisiFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="suivant" />
+    
+
+</LinearLayout>

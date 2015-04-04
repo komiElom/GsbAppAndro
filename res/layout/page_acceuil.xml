@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Page d'Acceuil" />
+<TextView
+        android:id="@+id/tTitreIdVisiteurAcceuil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id du Visiteur" />
+    
+   <TextView
+        android:id="@+id/tAfficheurAcceuil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affiche l'ID du Visiteur" />
+    <Button
+        android:id="@+id/bCreerF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Créer une Fiche de Frais" />
+
+    <Button
+        android:id="@+id/bconsulterF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="consulter une Fiche de Frais" />
+
+</LinearLayout>

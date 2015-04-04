@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+        <TextView
+        android:id="@+id/tTitreIdVisiteurFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id du Visiteur" />
+    
+   <TextView
+        android:id="@+id/tAfficheurIDFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affiche l'ID du Visiteur" />
+    
+    <TextView
+        android:id="@+id/tTitrePeriodeFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Periode" />
+
+    <TextView
+        android:id="@+id/tAfficPeriodeFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Afficheur du mois" />
+    <TextView
+        android:id="@+id/tvKm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de Kilomètre" />
+
+    <EditText
+        android:id="@+id/edKm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvHotel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de séjour d'hotel" />
+
+    <EditText
+        android:id="@+id/edHotel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned" />
+
+    <TextView
+        android:id="@+id/tRepas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Le nombre de repas" />
+
+    <EditText
+        android:id="@+id/edRepas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned" />
+
+    <Button
+        android:id="@+id/bValidSaisiForfait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="valider" />
+
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tPrenomInsci"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prenom" />
+
+    <EditText
+        android:id="@+id/edPrenomInscri"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tNomInscri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom" />
+
+    <EditText
+        android:id="@+id/edNomInscri"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tvAttribueVisiteur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID Attribue au visiteur" />
+
+    <EditText
+        android:id="@+id/IdAttibueMotDePass"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tvAttribueMotDePass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisir Mot de Pass" />
+
+    <EditText
+        android:id="@+id/edAttribueMotDePass"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/tVAttribueConfirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmation Mot de pass" />
+
+    <EditText
+        android:id="@+id/edAttribueConfirmation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/BValidationInscri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inscription" />
+
+</LinearLayout>

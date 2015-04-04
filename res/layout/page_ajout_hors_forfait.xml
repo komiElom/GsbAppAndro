@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/tTitreIdVisiteurAjouthorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id du Visiteur" />
+
+
+    <TextView
+        android:id="@+id/tAfficheurIDAjouthorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affiche l'ID du Visiteur" />
+    
+    <TextView
+        android:id="@+id/tTitrePeriodeAjouthorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Periode" />
+
+    <TextView
+        android:id="@+id/tAfficPeriodeAjouthorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Afficheur du mois" />
+
+    <TextView
+        android:id="@+id/tIndicationAjouthorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter un frais  hors forfaitiser ou retour A l'acceuil" />
+
+    <Button
+        android:id="@+id/bAjouterHorsFait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter Hors Forfait" />
+
+    <Button
+        android:id="@+id/bRetourAcceuil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour Acceuil" />
+
+</LinearLayout>
