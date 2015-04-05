@@ -5,62 +5,62 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/tPrenomInsci"
+        android:id="@+id/tPrenomInsciAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Prenom" />
 
     <EditText
-        android:id="@+id/edPrenomInscri"
+        android:id="@+id/edPrenomInscriAdmin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
 
     <TextView
-        android:id="@+id/tNomInscri"
+        android:id="@+id/tNomInscriAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nom" />
 
     <EditText
-        android:id="@+id/edNomInscri"
+        android:id="@+id/edNomInscriAdmin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
 
     <TextView
-        android:id="@+id/tvAttribueVisiteur"
+        android:id="@+id/tvAttribueVisiteurAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ID Attribue au visiteur" />
 
     <EditText
-        android:id="@+id/IdAttibueMotDePass"
+        android:id="@+id/edAttibueIDVisiteurAdmin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
 
     <TextView
-        android:id="@+id/tvAttribueMotDePass"
+        android:id="@+id/tvAttribueMotDePassAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Saisir Mot de Pass" />
 
     <EditText
-        android:id="@+id/edAttribueMotDePass"
+        android:id="@+id/edAttribueMotDePassAdmin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword" />
 
     <TextView
-        android:id="@+id/tVAttribueConfirmation"
+        android:id="@+id/tVAttribueConfirmationAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmation Mot de pass" />
 
     <EditText
-        android:id="@+id/edAttribueConfirmation"
+        android:id="@+id/edAttribueConfirmationAdmin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -70,7 +70,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/BValidationInscri"
+        android:id="@+id/BValidationInscriAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inscription" />

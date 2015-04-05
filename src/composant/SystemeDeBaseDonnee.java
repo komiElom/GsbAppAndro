@@ -1,6 +1,8 @@
 package composant;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -47,8 +49,7 @@ public class SystemeDeBaseDonnee {
 	private static final String COL_ID_FORFAIT = "id_forfait";
 	private static final String COL_LIBELLE_FORFAIT = "libellé_forfait";
 	
-	//
-	//
+
 	//Déclaration d'objet du contexte d'execution
 	private Context ContexteDExecution ;
 	//Déclaration de l'objet base de donnée
@@ -112,8 +113,7 @@ public class SystemeDeBaseDonnee {
 			 * 
 			 */
 			db.execSQL(" CREATE TABLE " + TABLE_VISITEUR + " (" + COL_ID_VISITEUR + " TEXT NOT NULL , " + COL_PRENOM_VISITEUR + " TEXT NOT NULL , " 
-			 + COL_NOM_VISITEUR + " TEXT NOT NULL ," 
-			 + COL_PRENOM_VISITEUR + " TEXT NOT NULL ," 
+			 + COL_NOM_VISITEUR + " TEXT NOT NULL , " 
 			 +  COL_MOT_DE_PASS + " TEXT NOT NULL);" );
 			 
 			db.execSQL(" CREATE TABLE " + TABLE_FICHE_DE_FRAIS +
@@ -142,6 +142,47 @@ public class SystemeDeBaseDonnee {
 		 	 
 	 }
 	
-	
+	 /**
+	  *  Declaration  'un objet de la class OutilDeDeBaseDeDonnee
+	  */
+	 private OutilDeDeBaseDeDonnee  NotreOutilBD  ;
+	 
+	 /**
+	  * méthode d'ouverture du système de Base de donnee
+	  *  instanciation de l'objet NotreOutilBD
+	  *  retourne la base de donnée en lecture
+	  *  */
+	 public SystemeDeBaseDonnee ouvrir () throws SQLException  {
+		 NotreOutilBD = new OutilDeDeBaseDeDonnee (ContexteDExecution ) ;
+		 gSbBaseDeDonnee =  NotreOutilBD.getWritableDatabase();
+		 return  this ;
+		 
+	 }
+	 /**
+	  * méthode de fin de connection de avec de système base
+	  * @return la  fermeture du systeme de Base de donnée
+	  */
+	public void fermer () {
+		NotreOutilBD.close();
+		
+	}
 
+	
+	/** méthode d'inscription des visiteur
+	 * @param id_visit : id du visiteur 
+	 * @param String prenom_visit : prenom  du visiteur
+	 * @param String nom_visit : le nom du visiteur
+	 * return vrai si  la méthode insert de l'objet gSbBaseDeDonnee 
+	 */
+	public long inscriptionVisiteur (String id_visit , String prenom_visit , 
+		String nom_visit,  String mot_de_pass_visit ) {
+		ContentValues conteneurDeValeur ;
+	    conteneurDeValeur = new ContentValues();
+		conteneurDeValeur.put(COL_ID_VISITEUR, id_visit);
+		conteneurDeValeur.put(COL_PRENOM_VISITEUR, prenom_visit);
+		conteneurDeValeur.put(COL_NOM_VISITEUR, nom_visit);
+		conteneurDeValeur.put(COL_MOT_DE_PASS, mot_de_pass_visit) ;	
+		return 	gSbBaseDeDonnee.insert(TABLE_VISITEUR,null, conteneurDeValeur);
+	}
+	
 }
