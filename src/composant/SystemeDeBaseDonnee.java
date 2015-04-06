@@ -2,6 +2,7 @@ package composant;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
@@ -183,6 +184,14 @@ public class SystemeDeBaseDonnee {
 		conteneurDeValeur.put(COL_NOM_VISITEUR, nom_visit);
 		conteneurDeValeur.put(COL_MOT_DE_PASS, mot_de_pass_visit) ;	
 		return 	gSbBaseDeDonnee.insert(TABLE_VISITEUR,null, conteneurDeValeur);
+	}
+	public boolean SeConnecter(String leIdSaisi, String leMotSaisi) {
+		// TODO Auto-generated method stub
+		String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS };
+		Cursor cuseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + "=" +  leIdSaisi, null, null, null, null);
+		 
+		    
+		return false;
 	}
 	
 }

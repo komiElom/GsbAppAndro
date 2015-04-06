@@ -37,17 +37,30 @@ public class Login extends Activity implements View.OnClickListener{
 		case com.gsb.R.id.bSeconnecterLogin :
 			String leIdSaisi = saisirVisitId.getText().toString();
 			String leMotSaisi = saisirVisiMot.getText().toString();
-			if(!leMotSaisi.contentEquals("")) {
+			if(leMotSaisi.contentEquals("")) {
 			Dialog unDialogue = new Dialog(this);
-			unDialogue.setTitle("voici le mot saisi" + leMotSaisi) ;
+			unDialogue.setTitle("veiller saisir ID") ;
 			TextView  petiteTexte = new TextView(this);
 			unDialogue.setContentView(petiteTexte);
 			unDialogue.show();
-			} else {
+			} if(leMotSaisi.contentEquals("")){
 				Dialog unDialogue = new Dialog(this);
-				unDialogue.setTitle(" veiller saisir tous les  champs") ;
+				unDialogue.setTitle("veiller saisir le mot de pass") ;
 				TextView  petiteTexte = new TextView(this);
 				unDialogue.setContentView(petiteTexte);
+				unDialogue.show();
+			}
+			
+			else {
+				
+				SystemeDeBaseDonnee unSystemeBD = new SystemeDeBaseDonnee(this);
+				unSystemeBD.ouvrir();
+				boolean verification = unSystemeBD.SeConnecter(leIdSaisi,leMotSaisi );
+				unSystemeBD.fermer();
+				Dialog unDialogue = new Dialog(this);
+				unDialogue.setTitle(" veiller saisir tous les  champs") ;
+				TextView  petiteVueTexte = new TextView(this);
+				unDialogue.setContentView(petiteVueTexte);
 				unDialogue.show();
 			}
 			break;
