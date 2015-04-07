@@ -185,7 +185,7 @@ public class SystemeDeBaseDonnee {
 		conteneurDeValeur.put(COL_MOT_DE_PASS, mot_de_pass_visit) ;	
 		return 	gSbBaseDeDonnee.insert(TABLE_VISITEUR,null, conteneurDeValeur);
 	}
-	public String SeConnecter (String leIdSaisi, String leMotSaisi) throws SQLException {
+	public String SeConnecter (String leIdSaisi, String leMotSaisi) {
 		// TODO Auto-generated method stub
 		String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
 		Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + "=" +  leIdSaisi, null, null, null, null);	
