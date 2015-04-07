@@ -182,7 +182,8 @@ public class SystemeDeBaseDonnee {
 		conteneurDeValeur.put(COL_ID_VISITEUR, id_visit);
 		conteneurDeValeur.put(COL_PRENOM_VISITEUR, prenom_visit);
 		conteneurDeValeur.put(COL_NOM_VISITEUR, nom_visit);
-		conteneurDeValeur.put(COL_MOT_DE_PASS, mot_de_pass_visit) ;	
+		conteneurDeValeur.put(COL_MOT_DE_PASS, mot_de_pass_visit);
+		
 		return 	gSbBaseDeDonnee.insert(TABLE_VISITEUR,null, conteneurDeValeur);
 	}
 	public String SeConnecter (String leIdSaisi, String leMotSaisi) throws SQLException {
@@ -190,7 +191,7 @@ public class SystemeDeBaseDonnee {
 		//String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
 		//Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + "=" +  leIdSaisi, null, null, null, null);
 		Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, null, null, null, null, null, null);	
-		
+		curseurDelecture.moveToFirst();
 	
 		String retourpass =  curseurDelecture .getString(1);
 		
