@@ -55,13 +55,14 @@ public class Login extends Activity implements View.OnClickListener{
 				
 				SystemeDeBaseDonnee unSystemeBD = new SystemeDeBaseDonnee(this);
 				unSystemeBD.ouvrir();
-				boolean verification = unSystemeBD.SeConnecter(leIdSaisi,leMotSaisi );
+				String verification = unSystemeBD.SeConnecter(leIdSaisi,leMotSaisi );
 				unSystemeBD.fermer();
 				Dialog unDialogue = new Dialog(this);
-				unDialogue.setTitle(" veiller saisir tous les  champs") ;
+				unDialogue.setTitle("voici le nom  " ) ;
 				TextView  petiteVueTexte = new TextView(this);
 				unDialogue.setContentView(petiteVueTexte);
 				unDialogue.show();
+				
 			}
 			break;
 		
