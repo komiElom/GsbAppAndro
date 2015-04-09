@@ -2,6 +2,7 @@ package composant;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,17 +53,26 @@ public class Login extends Activity implements View.OnClickListener{
 			}
 			
 			else {
-				
+				try{
 				SystemeDeBaseDonnee unSystemeBD = new SystemeDeBaseDonnee(this);
 				unSystemeBD.ouvrir();
-				String verification = unSystemeBD.SeConnecter(leIdSaisi,leMotSaisi );
+				String verification [] = unSystemeBD.SeConnecter(leIdSaisi,leMotSaisi );
 				unSystemeBD.fermer();
+				if (verification != null ) {
+				Bundle paquet = new Bundle();
+				paquet.putStringArray("paquetInfoIdentite", verification);
+				Intent Objecti_sur_act = new Intent(Login.this, composant.Acceuil.class);
+				Objecti_sur_act.putExtras(paquet);
+				this.startActivity(Objecti_sur_act);
+				this.finish();
+				}
+				} catch(Exception e){
 				Dialog unDialogue = new Dialog(this);
-				unDialogue.setTitle("ok" + verification ) ;
+				unDialogue.setTitle(" les information ne sont pas correcte" ) ;
 				TextView  petiteVueTexte = new TextView(this);
 				unDialogue.setContentView(petiteVueTexte);
 				unDialogue.show();
-				
+				}
 			}
 			break;
 		

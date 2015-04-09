@@ -115,7 +115,7 @@ public class SystemeDeBaseDonnee {
 			 */
 			db.execSQL(" CREATE TABLE " + TABLE_VISITEUR + " (" + COL_ID_VISITEUR + " TEXT NOT NULL , " + COL_PRENOM_VISITEUR + " TEXT NOT NULL , " 
 			 + COL_NOM_VISITEUR + " TEXT NOT NULL , " 
-			 +  COL_MOT_DE_PASS + " TEXT NOT NULL);" );
+		     +  COL_MOT_DE_PASS + " TEXT NOT NULL);" );
 			 
 			db.execSQL(" CREATE TABLE " + TABLE_FICHE_DE_FRAIS +
 					" (" + COL_ID_VISITEUR_FICHE_FRAIS + " TEXT NOT NULL , " + COL_MOIS_FICHE_DE_FRAIS + " INTEGER NOT NULL , "
@@ -136,6 +136,8 @@ public class SystemeDeBaseDonnee {
 					 + COL_LIBELLE_ETAT + " TEXT NOT NULL);" ) ;	
 			db.execSQL(" CREATE TABLE " + TABLE_FORFAIT + "(" + COL_ID_FORFAIT + " TEXT NOT NULL , "
 					  + COL_LIBELLE_FORFAIT + " TEXT NOT NULL);" ) ;
+			db.execSQL("") ;
+			
 			
 		}
 
@@ -186,22 +188,22 @@ public class SystemeDeBaseDonnee {
 		
 		return 	gSbBaseDeDonnee.insert(TABLE_VISITEUR,null, conteneurDeValeur);
 	}
-	public String SeConnecter (String leIdSaisi, String leMotSaisi) throws SQLException {
+	public String [] SeConnecter  (String leIdSaisi, String leMotSaisi) throws SQLException {
 		// TODO Auto-generated method stub
-		String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
-		Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + " = " + leIdSaisi, null, null, null, null);
-		//Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, null, null, null, null, null, null);	COL_ID_VISITEUR + "=" +  leIdSaisi
-		 
-		curseurDelecture.moveToFirst();
+	 String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
+	 Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + " = '" + leIdSaisi + "'", null, null, null, null);
+	if (curseurDelecture  != null ) {	
+	     curseurDelecture.moveToFirst();
 		String retourpass =  curseurDelecture .getString(1);
 		if (retourpass.contentEquals(leMotSaisi)) {
-		 String lenomVisteur = curseurDelecture.getString(2);
-		 curseurDelecture.close();
-			return lenomVisteur ;
+				 String lenomVisteur = curseurDelecture.getString(2);
+				 String lesIdentites [] = { lenomVisteur, leIdSaisi};
+				 curseurDelecture.close();
+			return lesIdentites ;
 		 }
-			
+	}		
 		 curseurDelecture.close();
-		return " saisimot" + leMotSaisi   ;
+		return null   ;
 		  
 	}
 	
