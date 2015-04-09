@@ -58,7 +58,7 @@ public class Login extends Activity implements View.OnClickListener{
 				String verification = unSystemeBD.SeConnecter(leIdSaisi,leMotSaisi );
 				unSystemeBD.fermer();
 				Dialog unDialogue = new Dialog(this);
-				unDialogue.setTitle("voici le nom  " ) ;
+				unDialogue.setTitle("ok" + verification ) ;
 				TextView  petiteVueTexte = new TextView(this);
 				unDialogue.setContentView(petiteVueTexte);
 				unDialogue.show();

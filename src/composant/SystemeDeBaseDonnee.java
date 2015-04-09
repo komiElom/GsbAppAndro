@@ -188,22 +188,21 @@ public class SystemeDeBaseDonnee {
 	}
 	public String SeConnecter (String leIdSaisi, String leMotSaisi) throws SQLException {
 		// TODO Auto-generated method stub
-		//String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
-		//Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + "=" +  leIdSaisi, null, null, null, null);
-		Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, null, null, null, null, null, null);	
+		String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
+		Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + " = " + leIdSaisi, null, null, null, null);
+		//Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, null, null, null, null, null, null);	COL_ID_VISITEUR + "=" +  leIdSaisi
+		 
 		curseurDelecture.moveToFirst();
-	
 		String retourpass =  curseurDelecture .getString(1);
-		
-		if (retourpass.contentEquals(leIdSaisi)) {
-		 String lenomVisteur = curseurDelecture.getString(1);
+		if (retourpass.contentEquals(leMotSaisi)) {
+		 String lenomVisteur = curseurDelecture.getString(2);
 		 curseurDelecture.close();
 			return lenomVisteur ;
 		 }
-		
+			
 		 curseurDelecture.close();
-		return null ;
-		    
+		return " saisimot" + leMotSaisi   ;
+		  
 	}
 	
 }
