@@ -4,38 +4,50 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
            <TextView
+        android:id="@+id/tvTitreFicheFraisSaisirFiche"  
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Creation de la fiche de frais du mois" />
     
         <TextView
-        android:id="@+id/tTitreIdVisiteurFiche"
+        android:id="@+id/tvTitreIdVisiteurSaisirFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="id du Visiteur" />
     
    <TextView
-        android:id="@+id/tAfficheurFiche"
+        android:id="@+id/tvAfficheurSaisirFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Affiche l'ID du Visiteur" />
-    
+
+   <TextView
+       android:id="@+id/tvTitreNomVisiteurSaisirFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nom du Visiteur" />
+
+   <TextView
+       android:id="@+id/tvAfficheurNomVisiteurSaisirFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="affiche du Nom Visiteur" />
  
     <TextView
-        android:id="@+id/tSaisiPeriode"
+        android:id="@+id/tvTitrePeriodeSaisirFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Saisi le mois de la Fiche" />
 
     <EditText
-        android:id="@+id/edPeriode"
+        android:id="@+id/edPeriodeSaisirFiche"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date" />
 
     <Button
-        android:id="@+id/bSuivantSaisiFor"
+        android:id="@+id/bSuivantSaisirFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="suivant" />
