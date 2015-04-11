@@ -38,6 +38,13 @@
               </intent-filter>
         </activity>
         
+           <activity android:name="composant.SaisirForFait">
+            <intent-filter>    
+                <action android:name="composant.SAISIRFORFAIT"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+        
     </application>
     
 
