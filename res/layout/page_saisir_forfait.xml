@@ -35,10 +35,23 @@
         android:text= "Periode" />
 
     <TextView
-        android:id="@+id/tAfficPeriodeSaisirforfait"
+        android:id="@+id/tvAfficheurPeriodeSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Afficheur du mois" />
+
+    <TextView
+        android:id="@+id/tvTitreEtapeSaisirforfait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" le nombre d'étape" />
+
+    <EditText
+        android:id="@+id/edEtapeSaisirforfait"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
     <TextView
         android:id="@+id/tvTitreKmSaisirforfait"
         android:layout_width="wrap_content"

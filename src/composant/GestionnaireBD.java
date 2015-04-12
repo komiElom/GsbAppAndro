@@ -18,7 +18,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @version 2014
  * @since 1.0
  */
-public class SystemeDeBaseDonnee {
+public class GestionnaireBD {
 	//déclaration des variables des champs, des métadonnées de la base de données
 	public static final String NOM_DE_BASE_DE_DONNEE = "base_D_Gsb" ;
 	public static final int VERSION_BASE_DONNEE = 1 ;
@@ -54,14 +54,14 @@ public class SystemeDeBaseDonnee {
 	//Déclaration d'objet du contexte d'execution
 	private Context ContexteDExecution ;
 	//Déclaration de l'objet base de donnée
-	private SQLiteDatabase gSbBaseDeDonnee ;
+	private SQLiteDatabase requeteurBaseGsb ;
 	
 	 /**
      * contruction l'environnement d'execution  de la classe SystemeDeBaseDonnee
      * @param C :  un objet  contexte  faisant appel  au systeme de base de  donnée(Class appelant) 
      * @return le contexte d'éxécution du système de base de donnée
      */
-	public SystemeDeBaseDonnee(Context c) {
+	public GestionnaireBD(Context c) {
 		ContexteDExecution  = c ;	
 	}
 	/**
@@ -70,13 +70,13 @@ public class SystemeDeBaseDonnee {
 	 * 
 	 *	 * 	 *  */
 	
-	 private static class OutilDeDeBaseDeDonnee extends SQLiteOpenHelper  {
+	 private static class ConnecteurBD extends SQLiteOpenHelper  {
 		 /**
 			 * contructeur de l'outil de creation de base de donnée
 			 * @param Context :  un objet contexte d'execution faisant appel à la class
 			 * definit le nom de la base de donnée,  et la version de la base de donnée
 			 *	 * 	 *  */
-		public OutilDeDeBaseDeDonnee(Context context) {
+		public ConnecteurBD(Context context) {
 		     super(context, NOM_DE_BASE_DE_DONNEE , null , VERSION_BASE_DONNEE);
 			// TODO Auto-generated constructor stub
 		}
@@ -148,16 +148,16 @@ public class SystemeDeBaseDonnee {
 	 /**
 	  *  Declaration  'un objet de la class OutilDeDeBaseDeDonnee
 	  */
-	 private OutilDeDeBaseDeDonnee  NotreOutilBD  ;
+	 private ConnecteurBD  NotreOutilBD  ;
 	 
 	 /**
 	  * méthode d'ouverture du système de Base de donnee
 	  *  instanciation de l'objet NotreOutilBD
 	  *  retourne la base de donnée en lecture
 	  *  */
-	 public SystemeDeBaseDonnee ouvrir () throws SQLException  {
-		 NotreOutilBD = new OutilDeDeBaseDeDonnee (ContexteDExecution ) ;
-		 gSbBaseDeDonnee =  NotreOutilBD.getWritableDatabase();
+	 public GestionnaireBD ouvrir () throws SQLException  {
+		 NotreOutilBD = new ConnecteurBD (ContexteDExecution ) ;
+		 requeteurBaseGsb =  NotreOutilBD.getWritableDatabase();
 		 return  this ;
 		 
 	 }
@@ -186,12 +186,12 @@ public class SystemeDeBaseDonnee {
 		conteneurDeValeur.put(COL_NOM_VISITEUR, nom_visit);
 		conteneurDeValeur.put(COL_MOT_DE_PASS, mot_de_pass_visit);
 		
-		return 	gSbBaseDeDonnee.insert(TABLE_VISITEUR,null, conteneurDeValeur);
+		return 	requeteurBaseGsb.insert(TABLE_VISITEUR,null, conteneurDeValeur);
 	}
 	public String [] SeConnecter  (String leIdSaisi, String leMotSaisi) throws SQLException {
 		// TODO Auto-generated method stub
 	 String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
-	 Cursor curseurDelecture  = gSbBaseDeDonnee.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + " = '" + leIdSaisi + "'", null, null, null, null);
+	 Cursor curseurDelecture  = requeteurBaseGsb.query(TABLE_VISITEUR, selectionColonne, COL_ID_VISITEUR + " = '" + leIdSaisi + "'", null, null, null, null);
 	if (curseurDelecture  != null ) {	
 	     curseurDelecture.moveToFirst();
 		String retourpass =  curseurDelecture .getString(1);
@@ -206,5 +206,47 @@ public class SystemeDeBaseDonnee {
 		return null   ;
 		  
 	}
+	public long enregistrerForfait(String leIDSaisi, String leMoisSaisi,
+			String leKmSaisi, String leSejourSaisi, String leRepasSaisi, String leEtapeSaisi) throws SQLException {
+       ContentValues conteneurDeValeurFiche = new ContentValues () ;
+       conteneurDeValeurFiche.put(COL_ID_VISITEUR_FICHE_FRAIS, leIDSaisi);
+       conteneurDeValeurFiche.put(COL_MOIS_FICHE_DE_FRAIS, leMoisSaisi);
+       conteneurDeValeurFiche.put(COL_ID_ETAT_FICHE_FRAIS, "CR") ;
+    	   // requeteurBaseGsb.insert(TABLE_FICHE_DE_FRAIS, null, conteneurDeValeurFiche);     
+    	 ContentValues   conteneurDeValeurFraisKm = new ContentValues ();
+    	    conteneurDeValeurFraisKm.put(COL_ID_LIGNE_FORFAIT, "KM");
+    	    conteneurDeValeurFraisKm.put(COL_ID_VISITEUR_LIGNE_FORFAIT,leIDSaisi );
+    	    conteneurDeValeurFraisKm.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+    	    conteneurDeValeurFraisKm.put(COL_QTE_LIGNE_FRAIS, leKmSaisi);
+    	 // requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurFraisKm);
+    	  ContentValues conteneurDeValeurSejour =  new ContentValues ();
+    	  conteneurDeValeurSejour.put(COL_ID_LIGNE_FORFAIT, "NUI") ;
+    	  conteneurDeValeurSejour.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
+    	  conteneurDeValeurSejour.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+    	  conteneurDeValeurSejour.put(COL_QTE_LIGNE_FRAIS, leSejourSaisi);
+    	  //requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurSejour);
+    	  ContentValues conteneurDeValeurRepas = new ContentValues ();
+    	  conteneurDeValeurRepas.put(COL_ID_LIGNE_FORFAIT, "REP");
+    	  conteneurDeValeurRepas.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
+    	  conteneurDeValeurRepas.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+    	  conteneurDeValeurRepas.put(COL_QTE_LIGNE_FRAIS, leRepasSaisi);
+    	 // requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurRepas);
+    	  ContentValues conteneurDeValeurEtape = new ContentValues () ;
+    	  conteneurDeValeurEtape.put(COL_ID_LIGNE_FORFAIT, "ETP");
+    	  conteneurDeValeurEtape.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
+    	  conteneurDeValeurEtape.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+    	  conteneurDeValeurEtape.put(COL_QTE_LIGNE_FRAIS, leEtapeSaisi);
+    	 // requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurEtape);
+    	  
+    	  
+    	    
+    
+    	    
+    	    return 0 ;
+		// TODO Auto-generated method stub
+	
+		
+	}
+
 	
 }

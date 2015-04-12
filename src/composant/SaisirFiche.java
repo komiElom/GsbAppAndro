@@ -46,11 +46,11 @@ public class SaisirFiche extends Activity  implements View.OnClickListener {
 			Bundle envoiDepaquet = new Bundle ();
 			String lesIndentites []  = { afficheurDeIdvisiteur.getText().toString(), afficheurDeNomvisiteur.getText().toString()} ;
 			envoiDepaquet.putStringArray("paquetInfoIdentite", lesIndentites);
-			//envoiDepaquet.putString("laPeriode", lemoisSaisi);
+			envoiDepaquet.putString("laPeriode", lemoisSaisi );
 			Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.SaisirForfait.class);
 			objectif_sur_Act.putExtras(envoiDepaquet);
 			this.startActivity(objectif_sur_Act);
-			
+			this.finish();
 			break ;
 		
 		}

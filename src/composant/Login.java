@@ -54,7 +54,7 @@ public class Login extends Activity implements View.OnClickListener{
 			
 			else {
 				try{
-				SystemeDeBaseDonnee unSystemeBD = new SystemeDeBaseDonnee(this);
+				GestionnaireBD unSystemeBD = new GestionnaireBD(this);
 				unSystemeBD.ouvrir();
 				String verification [] = unSystemeBD.SeConnecter(leIdSaisi,leMotSaisi );
 				unSystemeBD.fermer();

@@ -76,7 +76,7 @@ private Button SInscrire ;
 					if(motPassUn.contentEquals(motPassDeux)) {
 						
 						try {
-							SystemeDeBaseDonnee unSystemeBD = new SystemeDeBaseDonnee (this);
+							GestionnaireBD unSystemeBD = new GestionnaireBD (this);
 							unSystemeBD.ouvrir();
 							unSystemeBD.inscriptionVisiteur(leID, lePrenom, leNom, motPassUn);
 							Dialog unDialogue = new Dialog(this);

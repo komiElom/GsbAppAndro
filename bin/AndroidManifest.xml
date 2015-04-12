@@ -38,7 +38,7 @@
               </intent-filter>
         </activity>
         
-           <activity android:name="composant.SaisirForFait">
+           <activity android:name="composant.SaisirForfait">
             <intent-filter>    
                 <action android:name="composant.SAISIRFORFAIT"/>  
                  <category android:name ="android.intent.category.DEFAULT"/>
