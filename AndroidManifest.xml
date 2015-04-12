@@ -43,6 +43,14 @@
                 <action android:name="composant.SAISIRFORFAIT"/>  
                  <category android:name ="android.intent.category.DEFAULT"/>
               </intent-filter>
+              
+        </activity>
+           <activity android:name="composant.AjouthorsF">
+            <intent-filter>    
+                <action android:name="composant.AJOUTHORSF"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+           
         </activity>
         
     </application>

@@ -1,6 +1,7 @@
 package composant;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -47,10 +48,32 @@ public class SaisirFiche extends Activity  implements View.OnClickListener {
 			String lesIndentites []  = { afficheurDeIdvisiteur.getText().toString(), afficheurDeNomvisiteur.getText().toString()} ;
 			envoiDepaquet.putStringArray("paquetInfoIdentite", lesIndentites);
 			envoiDepaquet.putString("laPeriode", lemoisSaisi );
-			Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.SaisirForfait.class);
-			objectif_sur_Act.putExtras(envoiDepaquet);
-			this.startActivity(objectif_sur_Act);
-			this.finish();
+			 String dejaSaisi =  "" ;
+			try {
+			 GestionnaireBD unGestionnaireBD = new GestionnaireBD(this) ;
+			 unGestionnaireBD.ouvrir();
+			 dejaSaisi = unGestionnaireBD.existeFrais (afficheurDeIdvisiteur.getText().toString() , lemoisSaisi) ;
+			 unGestionnaireBD.fermer();
+				 if( !dejaSaisi.contentEquals("") ){
+					 
+						Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.AjouthorsF.class);
+					    objectif_sur_Act.putExtras(envoiDepaquet);
+					    this.startActivity(objectif_sur_Act);
+					   this.finish();
+			     } else {
+			    	 Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.SaisirForfait.class);
+				      objectif_sur_Act.putExtras(envoiDepaquet);
+				     this.startActivity(objectif_sur_Act);
+				     this.finish();	
+			     }
+			}catch (Exception e){
+			      Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.SaisirForfait.class);
+			      objectif_sur_Act.putExtras(envoiDepaquet);
+			     this.startActivity(objectif_sur_Act);
+			     this.finish();	
+				} 
+			 
+			 
 			break ;
 		
 		}

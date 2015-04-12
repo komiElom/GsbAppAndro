@@ -21,7 +21,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class GestionnaireBD {
 	//déclaration des variables des champs, des métadonnées de la base de données
 	public static final String NOM_DE_BASE_DE_DONNEE = "base_D_Gsb" ;
-	public static final int VERSION_BASE_DONNEE = 1 ;
+	public static final int VERSION_BASE_DONNEE = 2 ;
 	private static final String TABLE_VISITEUR = "Visiteur";
 	private static final String COL_NOM_VISITEUR = "nom_visiteur" ;
 	private static final String COL_PRENOM_VISITEUR = "prenom_visiteur" ;
@@ -93,12 +93,12 @@ public class GestionnaireBD {
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			// TODO Auto-generated method stub
-			db.execSQL ("DROP TABLE IF EXISTS" + TABLE_VISITEUR) ;
-			db.execSQL ("DROP TABLE IF EXISTS" + TABLE_FICHE_DE_FRAIS) ;
-			db.execSQL ("DROP TABLE IF EXISTS" + TABLE_LIGNE_FORFAIT) ;
-			db.execSQL ("DROP TABLE IF EXISTS" + TABLE_HORS_FORFAIT) ;
-			db.execSQL ("DROP TABLE IF EXISTS" + TABLE_ETAT) ;
-			db.execSQL ("DROP TABLE IF EXISTS" + TABLE_FORFAIT) ;
+			 if(newVersion > oldVersion) {
+				 db.execSQL("ALTER TABLE " +  TABLE_LIGNE_FORFAIT + 		 
+						 " ADD COLUMN " + COL_ID_LIGNE_FORFAIT + " TEXT NOT NULL  DEFAULT mon_id_default ; " ) ;
+				 
+				 
+			 }
 			this.onCreate(db);			
 		}
 		/**
@@ -113,6 +113,11 @@ public class GestionnaireBD {
 			/** sql de creation des tables  avec la méthode execSQL de l'objet db
 			 * 
 			 */
+			/**
+			 * la première version créee   ne sera jamais prise en compte 
+			 */
+			boolean premierVersion = false;
+			if (premierVersion  == true ){
 			db.execSQL(" CREATE TABLE " + TABLE_VISITEUR + " (" + COL_ID_VISITEUR + " TEXT NOT NULL , " + COL_PRENOM_VISITEUR + " TEXT NOT NULL , " 
 			 + COL_NOM_VISITEUR + " TEXT NOT NULL , " 
 		     +  COL_MOT_DE_PASS + " TEXT NOT NULL);" );
@@ -137,6 +142,9 @@ public class GestionnaireBD {
 			db.execSQL(" CREATE TABLE " + TABLE_FORFAIT + "(" + COL_ID_FORFAIT + " TEXT NOT NULL , "
 					  + COL_LIBELLE_FORFAIT + " TEXT NOT NULL);" ) ;
 			db.execSQL("") ;
+			}
+		
+			
 			
 			
 		}
@@ -208,45 +216,69 @@ public class GestionnaireBD {
 	}
 	public long enregistrerForfait(String leIDSaisi, String leMoisSaisi,
 			String leKmSaisi, String leSejourSaisi, String leRepasSaisi, String leEtapeSaisi) throws SQLException {
-       ContentValues conteneurDeValeurFiche = new ContentValues () ;
+     
+	   ContentValues conteneurDeValeurFiche = new ContentValues () ;
        conteneurDeValeurFiche.put(COL_ID_VISITEUR_FICHE_FRAIS, leIDSaisi);
        conteneurDeValeurFiche.put(COL_MOIS_FICHE_DE_FRAIS, leMoisSaisi);
        conteneurDeValeurFiche.put(COL_ID_ETAT_FICHE_FRAIS, "CR") ;
-    	   // requeteurBaseGsb.insert(TABLE_FICHE_DE_FRAIS, null, conteneurDeValeurFiche);     
+      requeteurBaseGsb.insert(TABLE_FICHE_DE_FRAIS, null, conteneurDeValeurFiche);     
     	 ContentValues   conteneurDeValeurFraisKm = new ContentValues ();
-    	    conteneurDeValeurFraisKm.put(COL_ID_LIGNE_FORFAIT, "KM");
-    	    conteneurDeValeurFraisKm.put(COL_ID_VISITEUR_LIGNE_FORFAIT,leIDSaisi );
-    	    conteneurDeValeurFraisKm.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+    	    conteneurDeValeurFraisKm.put(COL_ID_LIGNE_FORFAIT,  "KM");
+    	    conteneurDeValeurFraisKm.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi) ;
+    	    conteneurDeValeurFraisKm.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi) ;
     	    conteneurDeValeurFraisKm.put(COL_QTE_LIGNE_FRAIS, leKmSaisi);
-    	 // requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurFraisKm);
+   requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurFraisKm);
+    	    
     	  ContentValues conteneurDeValeurSejour =  new ContentValues ();
     	  conteneurDeValeurSejour.put(COL_ID_LIGNE_FORFAIT, "NUI") ;
     	  conteneurDeValeurSejour.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
     	  conteneurDeValeurSejour.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
     	  conteneurDeValeurSejour.put(COL_QTE_LIGNE_FRAIS, leSejourSaisi);
-    	  //requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurSejour);
+         requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurSejour);
     	  ContentValues conteneurDeValeurRepas = new ContentValues ();
     	  conteneurDeValeurRepas.put(COL_ID_LIGNE_FORFAIT, "REP");
     	  conteneurDeValeurRepas.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
     	  conteneurDeValeurRepas.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
     	  conteneurDeValeurRepas.put(COL_QTE_LIGNE_FRAIS, leRepasSaisi);
-    	 // requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurRepas);
+      requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurRepas);
     	  ContentValues conteneurDeValeurEtape = new ContentValues () ;
     	  conteneurDeValeurEtape.put(COL_ID_LIGNE_FORFAIT, "ETP");
     	  conteneurDeValeurEtape.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
     	  conteneurDeValeurEtape.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
     	  conteneurDeValeurEtape.put(COL_QTE_LIGNE_FRAIS, leEtapeSaisi);
-    	 // requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurEtape);
-    	  
-    	  
-    	    
-    
-    	    
-    	    return 0 ;
+     requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurEtape);	    
+    	    return 1;
+    	
 		// TODO Auto-generated method stub
 	
 		
 	}
+	public String existeFrais(String leIDSaisi, String leMoisSaisi) throws SQLException {
+		// TODO Auto-generated method stub
+		 String selectionColonne [] = new String [] {COL_ID_VISITEUR_FICHE_FRAIS, COL_MOIS_FICHE_DE_FRAIS, COL_ID_ETAT_FICHE_FRAIS} ;
+		 Cursor curseurDeLecture = requeteurBaseGsb.query(TABLE_FICHE_DE_FRAIS, selectionColonne, 
+		  COL_ID_VISITEUR_FICHE_FRAIS + " = " + "'" + leIDSaisi +"'" , null, null, null, null) ;
+				if(curseurDeLecture != null ) {
+					curseurDeLecture.moveToFirst() ;
+					for( curseurDeLecture.moveToFirst() ; !curseurDeLecture.isAfterLast(); curseurDeLecture.moveToNext()) 
+					{
+						String retourValeurDemois = curseurDeLecture.getString(1) ;
+						if (retourValeurDemois.contentEquals(leMoisSaisi) ) {
+							curseurDeLecture.close()		;	
+							return retourValeurDemois ;	
+						  }
+						}
+					      
+					  }
+			curseurDeLecture.close();	
+		  return "";
+		}
+		
+		
+		
+	
+
+	
 
 	
 }
