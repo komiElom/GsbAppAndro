@@ -72,9 +72,10 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 				    Bundle envoiDepaquet = new Bundle () ;
 				    envoiDepaquet.putStringArray("paquetInfoIdentite",lesIdentites);
 				    envoiDepaquet.putString("laPeriode", leMoisSaisi);
-				    Intent objectif_sur_Act = new Intent (SaisirHorsF.this, composant.SaisirHorsF.class) ;
+				    Intent objectif_sur_Act = new Intent (SaisirHorsF.this, composant.AjoutHorsF.class) ;
 				    objectif_sur_Act.putExtras(envoiDepaquet);
-				    this.startActivity(objectif_sur_Act);			    	
+				    this.startActivity(objectif_sur_Act);		
+				    this.finish();
 			     } catch (Exception e) {
 			    	 
 			    	 Dialog unDialogue  = new Dialog (this)  ;
