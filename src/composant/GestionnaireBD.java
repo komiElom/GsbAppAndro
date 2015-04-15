@@ -273,6 +273,18 @@ public class GestionnaireBD {
 			curseurDeLecture.close();	
 		  return "";
 		}
+	public long enregistrerHorsForfait(String leIdSaisi, String leMoisSaisi,
+			String laDateSaisi, String leLibelleSaisi, String leMontantSaisi) throws SQLException {
+		// TODO Auto-generated method stub
+		 ContentValues conteneurDevaleur = new ContentValues();
+		 conteneurDevaleur.put(COL_ID_VISITEUR_HORS_FORFAIT, leIdSaisi);
+		 conteneurDevaleur.put(COL_MOIS_HORS_FORFAIT, leMoisSaisi);
+		 conteneurDevaleur.put(COL_DATE_HORS_FORFAIT, laDateSaisi);
+		 conteneurDevaleur.put(COL_LIBELLE_HORS_FORFAIT, leLibelleSaisi);
+		 conteneurDevaleur.put(COL_MONTANT_HORS_FORFAIT, leMontantSaisi);
+		 return  requeteurBaseGsb.insert(TABLE_HORS_FORFAIT, null, conteneurDevaleur);
+		
+	}
 		
 		
 		

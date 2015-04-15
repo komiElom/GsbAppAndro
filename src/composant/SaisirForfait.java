@@ -1,6 +1,7 @@
 package composant;
 import android.app.Activity ;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,6 +61,7 @@ public class SaisirForfait extends Activity implements View.OnClickListener{
 			String leIDSaisi  = this.afficheurDeIdvisiteur.getText().toString();
 			String leMoisSaisi = this.afficheurMois.getText().toString();
 			String leEtapeSaisi = this.SaisirEtape.getText().toString();
+			String lesIdentites [] = {this.afficheurDeIdvisiteur.getText().toString() , this.afficheurDeNomvisiteur.getText().toString()};
 			
 			boolean saisieUser = true ;
 			if (leKmSaisi.contentEquals("")) {
@@ -116,7 +118,14 @@ public class SaisirForfait extends Activity implements View.OnClickListener{
 				} catch (Exception e) {
 					
 				}
-				//this.finish();
+				
+				Bundle expediteurDepaquet = new Bundle () ;
+				expediteurDepaquet.putStringArray("paquetInfoIdentite", lesIdentites);
+				expediteurDepaquet.putString("laPeriode", leMoisSaisi);
+				Intent object_sur_act = new Intent (SaisirForfait.this , composant.AjoutHorsF.class) ;
+				object_sur_act.putExtras(expediteurDepaquet) ;
+				this.startActivity(object_sur_act) ;		
+				this.finish();
 			}
 			
 			

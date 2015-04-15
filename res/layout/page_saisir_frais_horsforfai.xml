@@ -5,44 +5,56 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/tTitreIdVisiteurHors"
+        android:id="@+id/tvTitreIdVisiteurSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="id du Visiteur" />
 
 
     <TextView
-        android:id="@+id/tAfficheurIDHors"
+        android:id="@+id/tvAfficheurIDSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Affiche l'ID du Visiteur" />
     
     <TextView
-        android:id="@+id/tTitrePeriodeHors"
+        android:id="@+id/tvTitrePeriodeSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Periode" />
 
     <TextView
-        android:id="@+id/tAfficPeriodeHors"
+        android:id="@+id/tvAfficPeriodeHors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Afficheur du mois" />
 
     <TextView
-        android:id="@+id/tIndicationSaisihorsF"
+        android:id="@+id/tvTitreNomSaisihorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom Visiteur" />
+
+    <TextView
+        android:id="@+id/tvAfficheurDuNomSaisihorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affiche le nom" />
+
+    <TextView
+        android:id="@+id/tvTitreIndicationSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="saisir un frais  hors forfaitiser ou retour A l'acceuil" />
 
     <TextView
-        android:id="@+id/tDateHorsForfait"
+        android:id="@+id/tDateSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="la date de la dépense hors forfait" />
 
     <EditText
-        android:id="@+id/edDateHorsForfait"
+        android:id="@+id/edDateSaisihorsF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -52,32 +64,32 @@
     </EditText>
 
     <TextView
-        android:id="@+id/tlibelleHorsForfait"
+        android:id="@+id/tlvtitrelibelleSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="libéllé de la dépense hors forfait" />
 
     <EditText
-        android:id="@+id/ediLibelle"
+        android:id="@+id/ediLibelleSaisihorsF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
 
     <TextView
-        android:id="@+id/tMontantHorsForfait"
+        android:id="@+id/tMontantSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TMontant de la dépense  HorsForfait" />
 
     <EditText
-        android:id="@+id/edmontantHorsForfait"
+        android:id="@+id/edmontantSaisihorsF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/bValidationHorsForfait"
+        android:id="@+id/bValidationSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Valider la Saisie" />

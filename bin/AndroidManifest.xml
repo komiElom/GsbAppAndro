@@ -45,13 +45,22 @@
               </intent-filter>
               
         </activity>
-           <activity android:name="composant.AjouthorsF">
+           <activity android:name="composant.AjoutHorsF">
             <intent-filter>    
                 <action android:name="composant.AJOUTHORSF"/>  
                  <category android:name ="android.intent.category.DEFAULT"/>
               </intent-filter>
            
         </activity>
+               <activity android:name="composant.SaisirHorsF">
+            <intent-filter>    
+                <action android:name="composant.SAISIRHORSF"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+           
+        </activity>
+        
+        
         
     </application>
     

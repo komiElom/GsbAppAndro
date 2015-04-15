@@ -23,8 +23,8 @@ public class SaisirFiche extends Activity  implements View.OnClickListener {
 		Bundle recepteurDepaquet = new Bundle ();
 	    recepteurDepaquet		= this.getIntent().getExtras();
 	    String lesIndentites [] = recepteurDepaquet.getStringArray("paquetInfoIdentite");
-	    this.afficheurDeIdvisiteur.setText(lesIndentites [0]) ;
-	    this.afficheurDeNomvisiteur.setText(lesIndentites [1] );
+	    this.afficheurDeIdvisiteur.setText(lesIndentites[0]) ;
+	    this.afficheurDeNomvisiteur.setText(lesIndentites[1] );
 	}
 
 	private void initialiser() {
@@ -44,10 +44,10 @@ public class SaisirFiche extends Activity  implements View.OnClickListener {
 		switch (v.getId()){
 		case com.gsb.R.id.bSuivantSaisirFiche:
 			String lemoisSaisi = this.SaisirMois.getText().toString();
-			Bundle envoiDepaquet = new Bundle ();
+		   Bundle envoiDepaquet = new Bundle ();
 			String lesIndentites []  = { afficheurDeIdvisiteur.getText().toString(), afficheurDeNomvisiteur.getText().toString()} ;
-			envoiDepaquet.putStringArray("paquetInfoIdentite", lesIndentites);
-			envoiDepaquet.putString("laPeriode", lemoisSaisi );
+			envoiDepaquet.putStringArray("paquetInfoIdentite", lesIndentites );
+			envoiDepaquet.putString("laPeriode", lemoisSaisi);
 			 String dejaSaisi =  "" ;
 			try {
 			 GestionnaireBD unGestionnaireBD = new GestionnaireBD(this) ;
@@ -56,19 +56,19 @@ public class SaisirFiche extends Activity  implements View.OnClickListener {
 			 unGestionnaireBD.fermer();
 				 if( !dejaSaisi.contentEquals("") ){
 					 
-						Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.AjouthorsF.class);
-					    objectif_sur_Act.putExtras(envoiDepaquet);
+						Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.AjoutHorsF.class);
+					   objectif_sur_Act.putExtras(envoiDepaquet);
 					    this.startActivity(objectif_sur_Act);
 					   this.finish();
 			     } else {
 			    	 Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.SaisirForfait.class);
-				      objectif_sur_Act.putExtras(envoiDepaquet);
+				     objectif_sur_Act.putExtras(envoiDepaquet);
 				     this.startActivity(objectif_sur_Act);
 				     this.finish();	
 			     }
 			}catch (Exception e){
 			      Intent objectif_sur_Act = new Intent (SaisirFiche.this, composant.SaisirForfait.class);
-			      objectif_sur_Act.putExtras(envoiDepaquet);
+			     objectif_sur_Act.putExtras(envoiDepaquet);
 			     this.startActivity(objectif_sur_Act);
 			     this.finish();	
 				} 

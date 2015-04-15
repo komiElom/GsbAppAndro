@@ -12,10 +12,22 @@
 
 
     <TextView
-        android:id="@+id/tAfficheurIDAjouthorsF"
+        android:id="@+id/tvAfficheurIDAjouthorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Affiche l'ID du Visiteur" />
+
+    <TextView
+        android:id="@+id/tvTitreNomVisiteurAjouthorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom Du Visiteur" />
+
+    <TextView
+        android:id="@+id/tvAfficheurDuNomVisiteurAjoutHorsF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Aiifche nom du visteur" />
     
     <TextView
         android:id="@+id/tTitrePeriodeAjouthorsF"
@@ -24,7 +36,7 @@
         android:text="Periode" />
 
     <TextView
-        android:id="@+id/tAfficPeriodeAjouthorsF"
+        android:id="@+id/tvAfficPeriodeAjouthorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Afficheur du mois" />
@@ -42,7 +54,7 @@
         android:text="Ajouter Hors Forfait" />
 
     <Button
-        android:id="@+id/bRetourAcceuil"
+        android:id="@+id/bRetourAcceuilAjoutHorsFor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retour Acceuil" />
