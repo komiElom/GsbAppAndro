@@ -285,6 +285,31 @@ public class GestionnaireBD {
 		 return  requeteurBaseGsb.insert(TABLE_HORS_FORFAIT, null, conteneurDevaleur);
 		
 	}
+	public String[] afficherFiche(String leMoiSaisi, String leIdSaisi) {
+		// TODO Auto-generated method stub
+		String Colonneselection [] = {COL_ID_VISITEUR_FICHE_FRAIS , COL_MOIS_FICHE_DE_FRAIS ,
+				COL_MONTANT_FICHE_FRAIS, COL_ID_ETAT_FICHE_FRAIS } ;
+		Cursor  curseurDeLecture =  requeteurBaseGsb.query(TABLE_FICHE_DE_FRAIS, Colonneselection, COL_ID_VISITEUR_FICHE_FRAIS +  
+			" = '"	+ leIdSaisi + "'" , null, null, null, null) ;
+		
+		if (curseurDeLecture != null) {
+			curseurDeLecture.moveToFirst() ;
+			    for (curseurDeLecture.moveToFirst() ; !curseurDeLecture.isAfterLast(); curseurDeLecture.moveToNext() ) {
+			    	 String  retourMois = curseurDeLecture.getString(1) ;
+			    	 if ( retourMois.contentEquals(leMoiSaisi)) {
+			    		   String montant = curseurDeLecture.getString(2);
+			    		   String idEtat =  curseurDeLecture.getString(3) ;
+			    		   String ficheSelectionne [] = { montant , idEtat }  ;
+			    		   curseurDeLecture.close() ;
+			    		   return ficheSelectionne  ;
+			    	 }
+			    	
+			    }
+			 
+		}
+		  curseurDeLecture.close() ;
+		return null;
+	}
 		
 		
 		

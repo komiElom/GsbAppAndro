@@ -51,9 +51,13 @@ public class Acceuil extends Activity implements View.OnClickListener {
 			
 			break;
 		case com.gsb.R.id.bconsulterFAcceuil:;
-			Intent objectif_sur_act_b = new Intent ("") ;
-			
-			break;
+		   Bundle envoiPaquet_b = new Bundle () ;
+		   String lesIdentites_b [] = {AfficheurIdVisiteur.getText().toString(),afficheurNomVisiteur.getText().toString() }; 
+		   envoiPaquet_b.putStringArray("paquetInfoIdentite", lesIdentites_b) ;
+		   Intent objectif_sur_act_b = new Intent (Acceuil.this ,composant.SaisirConsulFiche.class) ;
+		   objectif_sur_act_b.putExtras(envoiPaquet_b);
+		   this.startActivity(objectif_sur_act_b);
+		   break;
 		
 		
 		}

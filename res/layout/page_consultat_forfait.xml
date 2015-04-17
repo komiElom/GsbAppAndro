@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/tvTitreIDConsultatFiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id du Visiteur" />
+    
+   <TextView
+        android:id="@+id/tvAfficheurConsultatFiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affiche l'ID du Visiteur" />
+
+   <TextView
+       android:id="@+id/tvTitreNomVisiteurDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nom du Visiteur" />
+
+   <TextView
+       android:id="@+id/tvTitrePeriodeDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="la Periode " />
+
+   <TextView
+       android:id="@+id/tvAfficheurPeriodeDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="affiche periode" />
+
+   <TextView
+       android:id="@+id/tTitreEtapeDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nombre d'étape" />
+
+   <TextView
+       android:id="@+id/tvAfficheurEtapeDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="aff Etap" />
+
+   <TextView
+       android:id="@+id/tvTitreSejourDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nombre de Sejour " />
+
+   <TextView
+       android:id="@+id/tvAfficheurSejourDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="affich de Sejour" />
+
+   <TextView
+       android:id="@+id/tvTitreRepasDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nombre de Repas" />
+
+   <TextView
+       android:id="@+id/tvAfficheurRepasDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="affich repas" />
+
+   <TextView
+       android:id="@+id/tvAfficheurkmDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nombre de Kilometre" />
+
+   <TextView
+       android:id="@+id/tvAfficheurDekmDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Affich  km" />
+
+</LinearLayout>

@@ -52,13 +52,33 @@
               </intent-filter>
            
         </activity>
-               <activity android:name="composant.SaisirHorsF">
+         <activity android:name="composant.SaisirHorsF">
             <intent-filter>    
                 <action android:name="composant.SAISIRHORSF"/>  
                  <category android:name ="android.intent.category.DEFAULT"/>
               </intent-filter>
            
         </activity>
+          <activity android:name="composant.SaisirConsulFiche">
+            <intent-filter>    
+                <action android:name="composant.SAISIRCONSULFICHE"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+        <activity android:name="composant.ConsulFiche">
+            <intent-filter>    
+                <action android:name="composant.CONSULFICHE"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+         <activity android:name="composant.DetailForfait">
+            <intent-filter>    
+                <action android:name="composant.DETAILFORFAIT"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+        
+        
         
         
         

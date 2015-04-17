@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+        <TextView
+        android:id="@+id/tvtitreConsultatFiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Page d'Acceuil" />
+<TextView
+        android:id="@+id/tvTitreIDConsultatFiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id du Visiteur" />
+    
+   <TextView
+        android:id="@+id/tvAfficheurIdVisiteurConsultatFiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affiche l'ID du Visiteur" />
+
+   <TextView
+       android:id="@+id/tvTitreNomVisiteurConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nom du Visiteur" />
+
+   <TextView
+       android:id="@+id/tvAfficheurNomVisiteurConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text=" affic nom" />
+
+   <TextView
+       android:id="@+id/tvTitrePeriodeConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="la Periode " />
+
+   <TextView
+       android:id="@+id/tvAfficheurPeriodeConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="affiche periode" />
+
+   <TextView
+       android:id="@+id/tvTitreMontantConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Montant validé" />
+
+   <TextView
+       android:id="@+id/tvAfficheurMontantConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="affiche Montant" />
+
+   <TextView
+       android:id="@+id/tvTitreEtatFicheConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="l'état de la fiche " />
+
+   <TextView
+       android:id="@+id/tvAfficheurEtatFicheConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="affiche etat" />
+
+   <Button
+       android:id="@+id/bDetailForfaitiserConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Détails forfaitiser" />
+
+   <Button
+       android:id="@+id/bDetailsHorsForfaitConsultatFiche"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Détails hors forfait" />
+
+</LinearLayout>
