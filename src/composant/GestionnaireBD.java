@@ -297,7 +297,7 @@ public class GestionnaireBD {
 			    for (curseurDeLecture.moveToFirst() ; !curseurDeLecture.isAfterLast(); curseurDeLecture.moveToNext() ) {
 			    	 String  retourMois = curseurDeLecture.getString(1) ;
 			    	 if ( retourMois.contentEquals(leMoiSaisi)) {
-			    		   String montant = curseurDeLecture.getString(2);
+			    		   String montant = curseurDeLecture.getString(2) ;
 			    		   String idEtat =  curseurDeLecture.getString(3) ;
 			    		   String ficheSelectionne [] = { montant , idEtat }  ;
 			    		   curseurDeLecture.close() ;

@@ -1,6 +1,7 @@
 package composant;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 	TextView afficheuridVisiteur , afficheurNomVisiteur , afficheurMois , afficheurMontantTotal, afficheurEtatFiche ;
 	Button bouttonDetailForfait , bouttonDetailHors ;
 	String leMoiSaisi ;
+	String lesIdentites [] ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -32,13 +34,13 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 		this.bouttonDetailHors  = (Button) this.findViewById(com.gsb.R.id.bDetailsHorsForfaitConsultatFiche) ;
 		Bundle recepteurDePaquet = new  Bundle () ;
 		recepteurDePaquet = this.getIntent().getExtras();
-		String lesIdentites [] = recepteurDePaquet.getStringArray("paquetInfoIdentite");
-	    leMoiSaisi = recepteurDePaquet.getString("laPeriode");
-	    this.afficheuridVisiteur.setText(lesIdentites[0]) ;
-	    this.afficheurNomVisiteur.setText(lesIdentites[1]);
+	  	lesIdentites  = recepteurDePaquet.getStringArray("paquetInfoIdentite");
+	   leMoiSaisi = recepteurDePaquet.getString("laPeriode");
+	     this.afficheuridVisiteur.setText(lesIdentites[0]) ;
+	   this.afficheurNomVisiteur.setText(lesIdentites[1]);
 	    this.afficheurMois.setText(leMoiSaisi);
 		this.bouttonDetailForfait.setOnClickListener(this);
-		this.bouttonDetailHors.setOnClickListener(this);	
+	  	this.bouttonDetailHors.setOnClickListener(this);	
 		
 	}
 	
@@ -63,10 +65,11 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 	       if( EtatFiche.contentEquals("VA")) {
 	    	   EtatFiche  = "Saisie Validée";			     
 	       }
-	       if (montant.contentEquals("")){
-	    	   montant = "00" ;
-	    	   
-	       }
+	      
+	        
+	        if (montant == null){
+	    	 montant = "00";   
+	      }
 		this.afficheurMontantTotal.setText( montant) ;
         this.afficheurEtatFiche.setText( EtatFiche) ;
 		 
@@ -80,9 +83,22 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 		switch(v.getId()) {
 		
 			case com.gsb.R.id.bDetailForfaitiserConsultatFiche :
+				Bundle envoiDePaquet = new Bundle () ;
+				envoiDePaquet.putStringArray("paquetInfoIdentite", lesIdentites) ;
+			    envoiDePaquet.putString("laPeriode", this.leMoiSaisi);
+			 	Intent object_sur_act = new Intent (ConsulFiche.this , composant.DetailForfait.class) ;
+		        object_sur_act.putExtras(envoiDePaquet) ;
+			    this.startActivity(object_sur_act) ;
+				
 			break ;
 			
 			case com.gsb.R.id.bDetailsHorsForfaitConsultatFiche :
+				Bundle envoiDePaquet_b = new Bundle () ;
+				envoiDePaquet_b.putStringArray("paquetInfoIdentite", lesIdentites) ;
+				envoiDePaquet_b.putString("laPeriode", this.leMoiSaisi);
+				Intent object_sur_Act_b = new Intent (ConsulFiche.this , composant.DetailHorsForfait.class) ;
+				this.startActivity(object_sur_Act_b);
+				
 				break ;
 		
 		}

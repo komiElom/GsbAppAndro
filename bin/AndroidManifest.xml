@@ -77,6 +77,25 @@
                  <category android:name ="android.intent.category.DEFAULT"/>
               </intent-filter>
         </activity>
+         <activity android:name="composant.DetailHorsForfait">
+            <intent-filter>    
+                <action android:name="composant.DETAILHORSFORFAIT"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+        <activity android:name="composant.ModifierForfait">
+            <intent-filter>    
+                <action android:name="composant.MODIFIERFORFAIT"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+         <activity android:name="composant.ModifierlHorsForfait">
+            <intent-filter>    
+                <action android:name="composant.MODIFIERHORSFORFAIT"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+        
         
         
         
