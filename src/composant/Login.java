@@ -68,12 +68,12 @@ public class Login extends Activity implements View.OnClickListener{
 				}
 				} catch(Exception e){
 				Dialog unDialogue = new Dialog(this);
-				unDialogue.setTitle(" les information ne sont pas correcte" ) ;
+				unDialogue.setTitle(e.toString()+" les information ne sont pas correcte"  ) ;
 				TextView  petiteVueTexte = new TextView(this);
-				petiteVueTexte.setText(e.toString());
+				//petiteVueTexte.setText(e.toString());
 				unDialogue.setContentView(petiteVueTexte);
 				unDialogue.show();
-				}
+			 }
 			}
 			break;
 		

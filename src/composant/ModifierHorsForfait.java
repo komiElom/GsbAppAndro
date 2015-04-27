@@ -9,12 +9,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
 
-public class SaisirHorsF   extends Activity implements View.OnClickListener {
+public class ModifierHorsForfait extends Activity implements View.OnClickListener {
 	TextView afficheurIdvisteur , afficheurNomVisiteur , afficheurMois ;
 	EditText saisirDatehorsf , SaisirLibelleHors, SaisirMontanthors ;
 	Button  ValiderSaisiHors ;
     String lesIdentites [] ;
 	String 	 leMoiSaisi  ;
+	String leNumeroSaisi ;
 	
 
 	@Override
@@ -23,7 +24,10 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 		super.onCreate(savedInstanceState);
 		this.setContentView(com.gsb.R.layout.page_saisir_frais_horsforfai) ;
 		initialiser() ;
+		initialiserHorsForfait() ;
 	}
+
+	
 
 	private void initialiser() {
 		// TODO Auto-generated method stub
@@ -38,6 +42,7 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 		Bundle recepteurDepaquet = this.getIntent().getExtras();
 		 lesIdentites = recepteurDepaquet.getStringArray("paquetInfoIdentite") ;
 		 leMoiSaisi = recepteurDepaquet.getString("laPeriode") ;
+		 this.leNumeroSaisi = recepteurDepaquet.getString("numeroHorsF") ;
 		 this.afficheurIdvisteur.setText(lesIdentites [0]);
 		 this.afficheurNomVisiteur.setText(lesIdentites [1]);
 		 this.afficheurMois.setText(leMoiSaisi);
@@ -46,7 +51,26 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 		
 		
 	}
-
+	private void initialiserHorsForfait() {
+		// TODO Auto-generated method stub
+		try {
+		GestionnaireBD unGestionnaireBD = new GestionnaireBD (this) ;
+		unGestionnaireBD.ouvrir();
+		 String lesHorsForfait [] = unGestionnaireBD.afficheLigneHorsForfait(leNumeroSaisi) ;
+		 unGestionnaireBD.fermer() ;
+		 this.saisirDatehorsf.setText(lesHorsForfait [0]) ;
+		 this.SaisirLibelleHors.setText(lesHorsForfait [1]) ;
+		 this.SaisirMontanthors.setText(lesHorsForfait [2]) ;
+    	
+		} catch (Exception e) {
+	    	 
+	    	 Dialog unDialogue  = new Dialog (this)  ;
+	    	 TextView uneVueTexte = new TextView (this);
+	    	 unDialogue.setContentView(uneVueTexte);
+	    	 unDialogue.setTitle("erreur") ;
+		}
+		
+	}
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -63,20 +87,9 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 			     try {
 			    	 GestionnaireBD unGestionnaire = new GestionnaireBD (this);
 			    	 unGestionnaire.ouvrir();
-			    	long verif = unGestionnaire.enregistrerHorsForfait(leIdSaisi,leMoisSaisi, laDateSaisi,leLibelleSaisi,leMontantSaisi   );
+			    	long verif = unGestionnaire.miseAJourHorsForfait(leIdSaisi,leMoisSaisi, laDateSaisi,leLibelleSaisi,leMontantSaisi, this.leNumeroSaisi );
 			    	 unGestionnaire.fermer();	 
-			    	Dialog unDialogue  = new Dialog (this)  ;
-				    TextView uneVueTexte = new TextView (this);
-				    uneVueTexte.setText(" les frais hors  sont bien enregistrés") ;
-				    unDialogue.setContentView(uneVueTexte);
-				    unDialogue.setTitle("confirmation") ;
-				    Bundle envoiDepaquet = new Bundle () ;
-				    envoiDepaquet.putStringArray("paquetInfoIdentite",lesIdentites);
-				    envoiDepaquet.putString("laPeriode", leMoisSaisi);
-				    Intent objectif_sur_Act = new Intent (SaisirHorsF.this, composant.AjoutHorsF.class) ;
-				    objectif_sur_Act.putExtras(envoiDepaquet);
-				    this.startActivity(objectif_sur_Act);		
-				    this.finish();
+				      this.finish();
 			     } catch (Exception e) {
 			    	 
 			    	 Dialog unDialogue  = new Dialog (this)  ;
@@ -95,5 +108,4 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 	
 	
 	
-
 }

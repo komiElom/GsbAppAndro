@@ -15,8 +15,10 @@
         
         <activity android:name="composant.Login">
             <intent-filter>
-                  <action android:name="android.intent.action.MAIN"/>     
+     
+                          <action android:name="android.intent.action.MAIN"/>     
                 <category  android:name="android.intent.category.LAUNCHER"/>
+                  
              </intent-filter>
         </activity>
         <activity android:name="composant.Admin">
@@ -89,12 +91,37 @@
                  <category android:name ="android.intent.category.DEFAULT"/>
               </intent-filter>
         </activity>
-         <activity android:name="composant.ModifierlHorsForfait">
+         <activity android:name="composant.ModifierHorsForfait">
             <intent-filter>    
                 <action android:name="composant.MODIFIERHORSFORFAIT"/>  
                  <category android:name ="android.intent.category.DEFAULT"/>
               </intent-filter>
         </activity>
+         <activity android:name="composant.ChoixDuHorsForfait">
+            <intent-filter>    
+                <action android:name="composant.CHOIXDUHORSFORFAIT"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+        </activity>
+        <activity android:name="composant.SuprimerHorsForfait">
+            <intent-filter>    
+                <action android:name="composant.SUPRIMERHORSFORFAIT"/>  
+                 <category android:name ="android.intent.category.DEFAULT"/>
+              </intent-filter>
+              
+        </activity>
+        <activity android:name="composant.AdminSupress">
+            <intent-filter>    
+                 
+       		         <action android:name="composant.ADMINSUPRESS"/>  
+                     <category android:name ="android.intent.category.DEFAULT"/>
+                
+                
+              </intent-filter>
+              
+        </activity>
+        
+        
         
         
         

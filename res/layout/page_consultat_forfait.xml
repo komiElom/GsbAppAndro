@@ -11,7 +11,7 @@
         android:text="id du Visiteur" />
     
    <TextView
-        android:id="@+id/tvAfficheurConsultatFiche"
+        android:id="@+id/tvAfficheuriDVisteurDetailForfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Affiche l'ID du Visiteur" />
@@ -21,6 +21,12 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="Nom du Visiteur" />
+
+   <TextView
+       android:id="@+id/tvAfficheurNomVisiteurDetailForfait"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Affich NOm" />
 
    <TextView
        android:id="@+id/tvTitrePeriodeDetailForfait"

@@ -110,7 +110,7 @@ public class SaisirForfait extends Activity implements View.OnClickListener{
 				Dialog unDialogue = new Dialog(this) ;
 				TextView uneVueDeTexte = new TextView(this) ;
 				unDialogue.setContentView(uneVueDeTexte);
-				unDialogue.setTitle( verif + "les frais forfaitisés sont bien enregistrés") ;
+				unDialogue.setTitle("forfait " + verif + "" +  "fiche" ) ;
 				unDialogue.show();
 				  }
 				

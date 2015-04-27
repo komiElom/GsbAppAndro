@@ -21,7 +21,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class GestionnaireBD {
 	//déclaration des variables des champs, des métadonnées de la base de données
 	public static final String NOM_DE_BASE_DE_DONNEE = "base_D_Gsb" ;
-	public static final int VERSION_BASE_DONNEE = 2 ;
+	public static final int VERSION_BASE_DONNEE = 3 ;
 	private static final String TABLE_VISITEUR = "Visiteur";
 	private static final String COL_NOM_VISITEUR = "nom_visiteur" ;
 	private static final String COL_PRENOM_VISITEUR = "prenom_visiteur" ;
@@ -38,6 +38,7 @@ public class GestionnaireBD {
 	private static final String COL_ID_LIGNE_FORFAIT = "id__ligne_forfait";
 	private static final String  COL_QTE_LIGNE_FRAIS = "qte_ligne_frais" ;
 	private static final String TABLE_HORS_FORFAIT = "hors_forfait" ;
+	private static final String  COL_NUM_HORS_FORFAIT = "numero_hors_forfait" ;
 	private static final String COL_ID_VISITEUR_HORS_FORFAIT = "id_visiteur_hors_forfait";
 	private static final String  COL_MOIS_HORS_FORFAIT = "mois_hors_forfait" ;
 	private static final String COL_LIBELLE_HORS_FORFAIT = "libelle_hors_forfait";
@@ -94,12 +95,21 @@ public class GestionnaireBD {
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			// TODO Auto-generated method stub
 			 if(newVersion > oldVersion) {
-				 db.execSQL("ALTER TABLE " +  TABLE_LIGNE_FORFAIT + 		 
-						 " ADD COLUMN " + COL_ID_LIGNE_FORFAIT + " TEXT NOT NULL  DEFAULT mon_id_default ; " ) ;
-				 
-				 
+				 //db.execSQL("ALTER TABLE " +  TABLE_LIGNE_FORFAIT + 		 
+					//	 " ADD COLUMN " + COL_ID_LIGNE_FORFAIT + " TEXT NOT NULL  DEFAULT mon_id_default ; " ) ;
+				// db.execSQL("ALTER TABLE  " + TABLE_HORS_FORFAIT +
+				   //     " ADD COLUMN " +  COL_NUM_HORS_FORFAIT + " INTEGER PRIMARY KEY AUTOINCREMENT ; " ) ;
+				// db.execSQL("DROP TABLE IF EXISTS "  + TABLE_HORS_FORFAIT ) ;
+				//	db.execSQL(" CREATE TABLE " + TABLE_HORS_FORFAIT +
+				 //   "(" + COL_ID_VISITEUR_HORS_FORFAIT + " TEXT NOT NULL , "
+						//		 + COL_MOIS_HORS_FORFAIT + " INTEGER NOT NULL , " 
+							//	 + COL_LIBELLE_HORS_FORFAIT + " TEXT NOT NULL , "
+							// + COL_MONTANT_HORS_FORFAIT + " INTEGER NULL , "
+						//		 + COL_DATE_HORS_FORFAIT + " INTEGER NOT NULL , " 
+							// + COL_NUM_HORS_FORFAIT + " INTEGER PRIMARY KEY AUTOINCREMENT );" );
 			 }
-			this.onCreate(db);			
+			this.onCreate(db);		
+		
 		}
 		/**
 	     *  la methode d'execution sql de la creation  des tables de la base de donnée 
@@ -118,30 +128,32 @@ public class GestionnaireBD {
 			 */
 			boolean premierVersion = false;
 			if (premierVersion  == true ){
-			db.execSQL(" CREATE TABLE " + TABLE_VISITEUR + " (" + COL_ID_VISITEUR + " TEXT NOT NULL , " + COL_PRENOM_VISITEUR + " TEXT NOT NULL , " 
-			 + COL_NOM_VISITEUR + " TEXT NOT NULL , " 
-		     +  COL_MOT_DE_PASS + " TEXT NOT NULL);" );
+			//db.execSQL(" CREATE TABLE " + TABLE_VISITEUR + " (" + COL_ID_VISITEUR + " TEXT NOT NULL , " + COL_PRENOM_VISITEUR + " TEXT NOT NULL , " 
+			// + COL_NOM_VISITEUR + " TEXT NOT NULL , " 
+		   //  +  COL_MOT_DE_PASS + " TEXT NOT NULL);" );
 			 
-			db.execSQL(" CREATE TABLE " + TABLE_FICHE_DE_FRAIS +
-					" (" + COL_ID_VISITEUR_FICHE_FRAIS + " TEXT NOT NULL , " + COL_MOIS_FICHE_DE_FRAIS + " INTEGER NOT NULL , "
-					 + COL_ID_ETAT_FICHE_FRAIS + " TEXT NOT NULL , "
-					 + COL_MONTANT_FICHE_FRAIS + " INTEGER NULL);" );
+		//	db.execSQL(" CREATE TABLE " + TABLE_FICHE_DE_FRAIS +
+			//		" (" + COL_ID_VISITEUR_FICHE_FRAIS + " TEXT NOT NULL , " + COL_MOIS_FICHE_DE_FRAIS + " INTEGER NOT NULL , "
+				//	 + COL_ID_ETAT_FICHE_FRAIS + " TEXT NOT NULL , "
+					// + COL_MONTANT_FICHE_FRAIS + " INTEGER NULL);" );
 			
-			db.execSQL(" CREATE TABLE " + TABLE_LIGNE_FORFAIT +
-					"(" + COL_ID_VISITEUR_LIGNE_FORFAIT + " TEXT NOT NULL , "
-					+ COL_MOIS_LIGNE_FORFAIT + " INTEGER NOT NULL , " 
-					+ COL_QTE_LIGNE_FRAIS + " NULL);" );
-			db.execSQL(" CREATE TABLE " + TABLE_HORS_FORFAIT +
-					  "(" + COL_ID_VISITEUR_HORS_FORFAIT + " TEXT NOT NULL , "
-					  + COL_MOIS_HORS_FORFAIT + " INTEGER NOT NULL , " 
-					  + COL_LIBELLE_HORS_FORFAIT + " TEXT NOT NULL , "
-					  + COL_MONTANT_HORS_FORFAIT + " INTEGER NULL , "
-					  + COL_DATE_HORS_FORFAIT + " INTEGER NOT NULL);" );
-			db.execSQL(" CREATE TABLE " + TABLE_ETAT + "(" + COL_ID_ETAT + " TEXT NOT NULL , "
-					 + COL_LIBELLE_ETAT + " TEXT NOT NULL);" ) ;	
-			db.execSQL(" CREATE TABLE " + TABLE_FORFAIT + "(" + COL_ID_FORFAIT + " TEXT NOT NULL , "
-					  + COL_LIBELLE_FORFAIT + " TEXT NOT NULL);" ) ;
-			db.execSQL("") ;
+			//db.execSQL(" CREATE TABLE " + TABLE_LIGNE_FORFAIT +
+			////		"(" + COL_ID_VISITEUR_LIGNE_FORFAIT + " TEXT NOT NULL , "
+				//	+ COL_MOIS_LIGNE_FORFAIT + " INTEGER NOT NULL , " 
+				//	+ COL_QTE_LIGNE_FRAIS + " NULL);" );
+	//	db.execSQL(" CREATE TABLE " + TABLE_HORS_FORFAIT +
+		//		  "(" + COL_ID_VISITEUR_HORS_FORFAIT + " TEXT NOT NULL , "
+		//			 + COL_MOIS_HORS_FORFAIT + " INTEGER NOT NULL , " 
+			//		 + COL_LIBELLE_HORS_FORFAIT + " TEXT NOT NULL , "
+			//	 + COL_MONTANT_HORS_FORFAIT + " INTEGER NULL , "
+			//		 + COL_DATE_HORS_FORFAIT + " INTEGER NOT NULL , " 
+			//	 + COL_NUM_HORS_FORFAIT + " INTEGER PRIMARY KEY AUTOINCREMENT );" );
+		             
+		//	db.execSQL(" CREATE TABLE " + TABLE_ETAT + "(" + COL_ID_ETAT + " TEXT NOT NULL , "
+				//	 + COL_LIBELLE_ETAT + " TEXT NOT NULL);" ) ;	
+			//db.execSQL(" CREATE TABLE " + TABLE_FORFAIT + "(" + COL_ID_FORFAIT + " TEXT NOT NULL , "
+				//	  + COL_LIBELLE_FORFAIT + " TEXT NOT NULL);" ) ;
+			
 			}
 		
 			
@@ -228,7 +240,6 @@ public class GestionnaireBD {
     	    conteneurDeValeurFraisKm.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi) ;
     	    conteneurDeValeurFraisKm.put(COL_QTE_LIGNE_FRAIS, leKmSaisi);
    requeteurBaseGsb.insert(TABLE_LIGNE_FORFAIT, null, conteneurDeValeurFraisKm);
-    	    
     	  ContentValues conteneurDeValeurSejour =  new ContentValues ();
     	  conteneurDeValeurSejour.put(COL_ID_LIGNE_FORFAIT, "NUI") ;
     	  conteneurDeValeurSejour.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
@@ -285,7 +296,11 @@ public class GestionnaireBD {
 		 return  requeteurBaseGsb.insert(TABLE_HORS_FORFAIT, null, conteneurDevaleur);
 		
 	}
-	public String[] afficherFiche(String leMoiSaisi, String leIdSaisi) {
+	
+	
+	
+	
+	public String[] afficherFiche(String leMoiSaisi, String leIdSaisi)  throws SQLException {
 		// TODO Auto-generated method stub
 		String Colonneselection [] = {COL_ID_VISITEUR_FICHE_FRAIS , COL_MOIS_FICHE_DE_FRAIS ,
 				COL_MONTANT_FICHE_FRAIS, COL_ID_ETAT_FICHE_FRAIS } ;
@@ -310,12 +325,176 @@ public class GestionnaireBD {
 		  curseurDeLecture.close() ;
 		return null;
 	}
+	public String [] afficheForfait (String leIdSaisi, String leMoisSaisi) throws SQLException {
+		// TODO Auto-generated method stub
+		String colonneSelectionne [] = { COL_ID_VISITEUR_LIGNE_FORFAIT ,COL_MOIS_LIGNE_FORFAIT  ,COL_ID_LIGNE_FORFAIT , COL_QTE_LIGNE_FRAIS } ;
+		Cursor curseurDelecture = requeteurBaseGsb.query(TABLE_LIGNE_FORFAIT, colonneSelectionne,
+			          COL_ID_VISITEUR_LIGNE_FORFAIT + " = '" + leIdSaisi + "'" , null , null , null , null ) ;
+		//Cursor curseurDelecture =  requeteurBaseGsb.query(TABLE_LIGNE_FORFAIT, null, null, null, null, null, null);
+		String faux  = "faux" ;
+		 
+		if (curseurDelecture != null) {
+			 String nombreEtape = "" ;
+			 String nombreSejour = "" ;
+			 String nombreRepas = "";
+			 String nombreKm = "" ;
 		
+			 
+			curseurDelecture .moveToFirst() ;
+			for(curseurDelecture .moveToFirst() ;  !curseurDelecture.isAfterLast() ; curseurDelecture.moveToNext() ){
+				      String retourMois = curseurDelecture.getString(1) ; 
+				      faux = retourMois ;
+				       if (retourMois.contentEquals(leMoisSaisi) ) {
+				    	       String rechercheEtape = curseurDelecture .getString(2) ;
+				    	       if(rechercheEtape.contentEquals("ETP")) {
+				    	    	    nombreEtape = curseurDelecture.getString(3); 
+				    	       }
+				    	      String rechercheSejour = curseurDelecture.getString(2);
+				    	      if (rechercheSejour.contentEquals("NUI")) {
+				    	      nombreSejour  =  	curseurDelecture.getString(3); 	    	    	  
+				    	     }
+				    	      String rechercheRepas = curseurDelecture.getString(2);
+				    	      if (rechercheRepas.contentEquals("REP")) {
+				    	      nombreRepas = curseurDelecture.getString(3); 
+				    	      }
+				    	      String rechercheKm = curseurDelecture.getString(2) ;
+				    	      if (rechercheKm .contentEquals("KM")) {
+				    	    	  nombreKm = curseurDelecture.getString(3); 
+				    	      }
+				    	    
+				       }
+			}
+			 String listeLigneforfait []  = { nombreEtape , nombreSejour , nombreRepas ,nombreKm } ;      
+			 curseurDelecture.close();
+			
+			 return listeLigneforfait ;
+		}
+		curseurDelecture.close();
+		String fff [] = {faux ,faux ,faux ,faux} ;
+		return fff ;
+	}
+	public void miseAjourForfait(String leIDSaisi, String leMoisSaisi, String leEtapeSaisi , String leSejourSaisi, String leRepasSaisi , String leKmSaisi) {
+		// TODO Auto-generated method stub
 		
+			   	 ContentValues   conteneurDeValeurFraisKm = new ContentValues ();
+				    conteneurDeValeurFraisKm.put(COL_ID_LIGNE_FORFAIT,  "KM");
+				    conteneurDeValeurFraisKm.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi) ;
+				    conteneurDeValeurFraisKm.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi) ;
+				    conteneurDeValeurFraisKm.put(COL_QTE_LIGNE_FRAIS, leKmSaisi);
+				    String uneClauseKm [] = {"KM",leIDSaisi, leMoisSaisi } ;
+			 requeteurBaseGsb.update(TABLE_LIGNE_FORFAIT, conteneurDeValeurFraisKm,
+					COL_ID_LIGNE_FORFAIT + "=?"  +  " AND " + COL_ID_VISITEUR_LIGNE_FORFAIT + "=? "  +  
+			        " AND " +  COL_MOIS_LIGNE_FORFAIT + "=?"  , uneClauseKm) ;
+				  ContentValues conteneurDeValeurSejour =  new ContentValues ();
+				  conteneurDeValeurSejour.put(COL_ID_LIGNE_FORFAIT, "NUI") ;
+				  conteneurDeValeurSejour.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
+				  conteneurDeValeurSejour.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+				  conteneurDeValeurSejour.put(COL_QTE_LIGNE_FRAIS, leSejourSaisi);
+				  String uneClauseSejour [] = {"NUI",leIDSaisi, leMoisSaisi } ;
+			 requeteurBaseGsb.update(TABLE_LIGNE_FORFAIT, conteneurDeValeurSejour,
+							COL_ID_LIGNE_FORFAIT + "=?"  +  " AND " + COL_ID_VISITEUR_LIGNE_FORFAIT + "=? "  +  
+					        " AND " +  COL_MOIS_LIGNE_FORFAIT + "=?"  ,uneClauseSejour) ;
+				  ContentValues conteneurDeValeurRepas = new ContentValues ();
+				  conteneurDeValeurRepas.put(COL_ID_LIGNE_FORFAIT, "REP");
+				  conteneurDeValeurRepas.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
+				  conteneurDeValeurRepas.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+				  conteneurDeValeurRepas.put(COL_QTE_LIGNE_FRAIS, leRepasSaisi);
+				  String uneClauserepas [] = {"REP",leIDSaisi, leMoisSaisi } ;
+		     requeteurBaseGsb.update(TABLE_LIGNE_FORFAIT, conteneurDeValeurRepas,
+							COL_ID_LIGNE_FORFAIT + "=?"  +  " AND " + COL_ID_VISITEUR_LIGNE_FORFAIT + "=? "  +  
+					        " AND " +  COL_MOIS_LIGNE_FORFAIT + "=?"  , uneClauserepas) ;
+				  ContentValues conteneurDeValeurEtape = new ContentValues () ;
+				  conteneurDeValeurEtape.put(COL_ID_LIGNE_FORFAIT, "ETP");
+				  conteneurDeValeurEtape.put(COL_ID_VISITEUR_LIGNE_FORFAIT, leIDSaisi);
+				  conteneurDeValeurEtape.put(COL_MOIS_LIGNE_FORFAIT, leMoisSaisi);
+				  conteneurDeValeurEtape.put(COL_QTE_LIGNE_FRAIS, leEtapeSaisi);
+				  String uneClauseEtape [] = {"ETP",leIDSaisi, leMoisSaisi } ;
+		     requeteurBaseGsb.update(TABLE_LIGNE_FORFAIT, conteneurDeValeurEtape,
+							COL_ID_LIGNE_FORFAIT + "=?"  +  " AND " + COL_ID_VISITEUR_LIGNE_FORFAIT + "=? "  +  
+					        " AND " +  COL_MOIS_LIGNE_FORFAIT + "=?"  , uneClauseEtape) ;
 		
+	}
 	
+	public String  afficherHorsForfait (String leIdSaisi ,String  leMoiSaisi) throws SQLException  {
+		 String SelectionnColonne [] = {COL_NUM_HORS_FORFAIT,COL_DATE_HORS_FORFAIT,COL_LIBELLE_HORS_FORFAIT ,
+		    COL_MONTANT_HORS_FORFAIT } ;
+		 //  
+		  String lesParametreClause [] = {leIdSaisi ,leMoiSaisi } ;
+		  Cursor cuseurDeLecture = requeteurBaseGsb.query(TABLE_HORS_FORFAIT, SelectionnColonne, 
+				  COL_ID_VISITEUR_HORS_FORFAIT + "=?" + " AND " +  COL_MOIS_HORS_FORFAIT + "=?"
+				 , lesParametreClause , null, null, null) ;
+		  if(cuseurDeLecture != null ) {
+			 String resultat = "" ;
+			   for(cuseurDeLecture.moveToFirst(); !cuseurDeLecture.isAfterLast() ;  cuseurDeLecture.moveToNext() ) {
+			   resultat = resultat + " N° HorsF " + cuseurDeLecture.getString(0) + " Date " + cuseurDeLecture.getString(1) +
+				    " libelle " + cuseurDeLecture.getString(2) +  " montant " + cuseurDeLecture.getString(3)   + "\n" + "\n" ;  
+				      
+			   }
+			   cuseurDeLecture.close() ;
+			  return  resultat  ;
+		  }
+		  cuseurDeLecture.close() ;	
+		return "rien" ;
+		
+	}
+	
+	public void supprimerHorsforfait(String numeroHorsForfait) throws SQLException  {
+		// TODO Auto-generated method stub
+	      String parametreDelaClause [] = {numeroHorsForfait};
+		requeteurBaseGsb.delete(TABLE_HORS_FORFAIT, COL_NUM_HORS_FORFAIT + "=?", parametreDelaClause  );
+		
+	}
+	public void suppimerFiche(String leIdSaisi, String leMoiSaisi) throws SQLException  {
+		// TODO Auto-generated method stub
+		 String parametreDelaClause [] = {leIdSaisi, leMoiSaisi };
+		 requeteurBaseGsb.delete(TABLE_LIGNE_FORFAIT, COL_ID_VISITEUR_LIGNE_FORFAIT  + "=?" + "" + " AND " +
+		   COL_MOIS_LIGNE_FORFAIT +  "=?" , parametreDelaClause);
+		 
+		 requeteurBaseGsb.delete(TABLE_HORS_FORFAIT, COL_ID_VISITEUR_HORS_FORFAIT + "=?" + "" + " AND " +
+				   COL_MOIS_HORS_FORFAIT +  "=?" , parametreDelaClause);
 
+		 requeteurBaseGsb.delete(TABLE_FICHE_DE_FRAIS, COL_ID_VISITEUR_FICHE_FRAIS + "=?" + "" + " AND " +
+				   COL_MOIS_FICHE_DE_FRAIS +  "=?" , parametreDelaClause);
+		 
+	}
+	public String[] afficheLigneHorsForfait(String leNumeroSaisi)throws SQLException {
+		// TODO Auto-generated method stub
+		String SelectionnColonne [] = {COL_NUM_HORS_FORFAIT,COL_DATE_HORS_FORFAIT,COL_LIBELLE_HORS_FORFAIT ,
+			    COL_MONTANT_HORS_FORFAIT } ;
+			 //  
+			  String lesParametreClause [] = {leNumeroSaisi} ;
+			  Cursor cuseurDeLecture = requeteurBaseGsb.query(TABLE_HORS_FORFAIT, SelectionnColonne, 
+					  COL_NUM_HORS_FORFAIT + "=?" , lesParametreClause , null, null, null) ;
+			  if(cuseurDeLecture != null ) {
+				 String laDate = "" ;
+				 String leLibelle = "";
+				 String leMontant= "" ;
+				 cuseurDeLecture.moveToFirst() ;
+				 laDate = cuseurDeLecture.getString(1) ;
+				  leLibelle  = cuseurDeLecture.getString(2) ;
+				  leMontant = cuseurDeLecture.getString(3)  ;
+				   cuseurDeLecture.close() ;
+				   String  resultat [] = { laDate, leLibelle, leMontant} ;
+				return  resultat  ;
+			  }
+		cuseurDeLecture.close() ;	
+		return null;
+	}
+	public long miseAJourHorsForfait(String leIdSaisi, String leMoisSaisi,
+			String laDateSaisi, String leLibelleSaisi, String leMontantSaisi,
+			String leNumeroSaisi)  {
+		// TODO Auto-generated method stub
+		String parametreDelaClause [] = {leNumeroSaisi};
+		 ContentValues conteneurDevaleur = new ContentValues();
+		 conteneurDevaleur.put(COL_ID_VISITEUR_HORS_FORFAIT, leIdSaisi);
+		 conteneurDevaleur.put(COL_MOIS_HORS_FORFAIT, leMoisSaisi);
+		 conteneurDevaleur.put(COL_DATE_HORS_FORFAIT, laDateSaisi);
+		 conteneurDevaleur.put(COL_LIBELLE_HORS_FORFAIT, leLibelleSaisi);
+		 conteneurDevaleur.put(COL_MONTANT_HORS_FORFAIT, leMontantSaisi);
+		return requeteurBaseGsb.update(TABLE_HORS_FORFAIT, conteneurDevaleur,
+				COL_NUM_HORS_FORFAIT + "=?", parametreDelaClause) ;
+				
+	}
 	
-
-	
+		
 }
