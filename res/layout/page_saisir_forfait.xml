@@ -2,22 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/noir"
     android:orientation="vertical" >
-    
+  
+             <LinearLayout 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="70dp"
+    >  
         <TextView
         android:id="@+id/tvTitreIdVisiteurSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/lemon"
         android:text="id du Visiteur" />
     
    <TextView
         android:id="@+id/tvAfficheurIDSaisirforfait"
         android:layout_width="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:layout_height="wrap_content"
         android:text="Affiche l'ID du Visiteur" />
 
    <TextView
        android:id="@+id/tvTitreDuNomVisiteurSaisirforfait"
+    android:textColor="@color/lemon"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="Nom du Visiteur " />
@@ -25,12 +37,15 @@
    <TextView
        android:id="@+id/tvAfficheurNomVisiteurSaisirforfait"
        android:layout_width="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:layout_height="wrap_content"
        android:text="affiche Nom du visiteur" />
     
     <TextView
         android:id="@+id/tvTitrePeriodeSaisirforfait"
         android:layout_width="wrap_content"
+         android:textColor="@color/lemon"
         android:layout_height="wrap_content"
         android:text= "Periode" />
 
@@ -38,12 +53,30 @@
         android:id="@+id/tvAfficheurPeriodeSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Afficheur du mois" />
+ </LinearLayout>
 
+   
+ 
+
+ <ScrollView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       >
+ <LinearLayout 
+     android:orientation="vertical" 
+      android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+    >
+   
     <TextView
         android:id="@+id/tvTitreEtapeSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+         android:textColor="@color/lemon"
         android:text=" le nombre d'étape" />
 
     <EditText
@@ -56,6 +89,7 @@
         android:id="@+id/tvTitreKmSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+         android:textColor="@color/lemon"
         android:text="Nombre de Kilomètre" />
 
     <EditText
@@ -72,6 +106,7 @@
         android:id="@+id/tvTitreHotelSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+         android:textColor="@color/lemon"
         android:text="Nombre de séjour d'hotel" />
 
     <EditText
@@ -85,6 +120,7 @@
         android:id="@+id/tvTitreRepasSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+         android:textColor="@color/lemon"
         android:text="Le nombre de repas" />
 
     <EditText
@@ -98,6 +134,9 @@
         android:id="@+id/bValidSaisirforfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
         android:text="valider" />
-
+    
+</LinearLayout>
+</ScrollView>
 </LinearLayout>

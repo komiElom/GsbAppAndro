@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
+        android:background="@color/noir"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:weightSum="100"
+     >
 
     <TextView
         android:id="@+id/tvTitreIdVisiteurSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:textColor="@color/lemon"
         android:text="id du Visiteur" />
 
 
@@ -15,47 +19,74 @@
         android:id="@+id/tvAfficheurIDSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Affiche l'ID du Visiteur" />
     
     <TextView
         android:id="@+id/tvTitrePeriodeSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:textColor="@color/lemon"
         android:text="Periode" />
 
     <TextView
         android:id="@+id/tvAfficPeriodeHors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Afficheur du mois" />
 
     <TextView
         android:id="@+id/tvTitreNomSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:textColor="@color/lemon"
         android:text="Nom Visiteur" />
 
     <TextView
         android:id="@+id/tvAfficheurDuNomSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Affiche le nom" />
 
     <TextView
         android:id="@+id/tvTitreIndicationSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+           android:textColor="@color/lemon"
         android:text="saisir un frais  hors forfaitiser ou retour A l'acceuil" />
-
+    <ScrollView 
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginRight="20dp"
+     
+       
+        >
+            <LinearLayout 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+       android:layout_width="wrap_content"
+       android:layout_height="fill_parent"
+       android:layout_marginLeft="25dp"
+       android:layout_marginTop="15dp"
+       android:layout_marginRight="20dp"
+    >
+  
     <TextView
         android:id="@+id/tDateSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:textColor="@color/lemon"
         android:text="la date de la dépense hors forfait" />
 
     <EditText
         android:id="@+id/edDateSaisihorsF"
-        android:layout_width="fill_parent"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date" >
@@ -67,6 +98,7 @@
         android:id="@+id/tlvtitrelibelleSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:textColor="@color/lemon"
         android:text="libéllé de la dépense hors forfait" />
 
     <EditText
@@ -79,11 +111,12 @@
         android:id="@+id/tMontantSaisihorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TMontant de la dépense  HorsForfait" />
+           android:textColor="@color/lemon"
+        android:text="Montant de la dépense  HorsForfait" />
 
     <EditText
         android:id="@+id/edmontantSaisihorsF"
-        android:layout_width="fill_parent"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal" />
@@ -94,4 +127,6 @@
         android:layout_height="wrap_content"
         android:text="Valider la Saisie" />
 
+</LinearLayout>
+ </ScrollView>  
 </LinearLayout>

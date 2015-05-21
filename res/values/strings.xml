@@ -1,5 +1,15 @@
 <resources>
 
     <string name="app_name">GsbNote-Frais</string>
+    <color name="orange">#ffcc33</color>
+    <color name="bleueClair">#4FD5D6</color>
+    <color name="vertfluo">#00FF00</color>
+    <color name="lemon">#99FF00</color>
+    <color name="jauneFaible">#FFFF66</color>
+    <color name="autrebleue">#34DDDD</color>
+    <color name="blanc">#FFF</color>
+    <color name="gris">#F1EFE2</color>
+    <color name="jauneclair">#FFFFBE</color>
+    <color name="noir">#111</color>
 
 </resources>

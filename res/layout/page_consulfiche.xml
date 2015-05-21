@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/bleueClair"
     android:orientation="vertical" >
     
         <TextView
@@ -9,6 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Page d'Acceuil" />
+    <LinearLayout 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="10dp"
+    >       
 <TextView
         android:id="@+id/tvTitreIDConsultatFiche"
         android:layout_width="wrap_content"
@@ -19,6 +27,8 @@
         android:id="@+id/tvAfficheurIdVisiteurConsultatFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+         android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Affiche l'ID du Visiteur" />
 
    <TextView
@@ -31,6 +41,8 @@
        android:id="@+id/tvAfficheurNomVisiteurConsultatFiche"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text=" affic nom" />
 
    <TextView
@@ -42,9 +54,18 @@
    <TextView
        android:id="@+id/tvAfficheurPeriodeConsultatFiche"
        android:layout_width="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:layout_height="wrap_content"
        android:text="affiche periode" />
-
+</LinearLayout>
+             <LinearLayout 
+    android:orientation="vertical" 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="40dp"
+       android:layout_marginLeft="2dp"
+    > 
    <TextView
        android:id="@+id/tvTitreMontantConsultatFiche"
        android:layout_width="wrap_content"
@@ -55,6 +76,8 @@
        android:id="@+id/tvAfficheurMontantConsultatFiche"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text="affiche Montant" />
 
    <TextView
@@ -67,11 +90,21 @@
        android:id="@+id/tvAfficheurEtatFicheConsultatFiche"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text="affiche etat" />
-
+</LinearLayout>
+ <LinearLayout 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="80dp"
+       android:layout_marginLeft="2dp"
+    > 
    <Button
        android:id="@+id/bDetailForfaitiserConsultatFiche"
-       android:layout_width="wrap_content"
+       android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="Détails forfaitiser" />
 
@@ -80,5 +113,5 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="Détails hors forfait" />
-
+</LinearLayout>
 </LinearLayout>

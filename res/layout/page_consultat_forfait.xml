@@ -2,8 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/bleueClair"
     android:orientation="vertical" >
-    
+       <LinearLayout 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      
+       android:layout_marginLeft="20dp"
+    > 
     <TextView
         android:id="@+id/tvTitreIDConsultatFiche"
         android:layout_width="wrap_content"
@@ -14,6 +22,8 @@
         android:id="@+id/tvAfficheuriDVisteurDetailForfait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+          android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Affiche l'ID du Visiteur" />
 
    <TextView
@@ -26,6 +36,8 @@
        android:id="@+id/tvAfficheurNomVisiteurDetailForfait"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+         android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text="Affich NOm" />
 
    <TextView
@@ -38,8 +50,17 @@
        android:id="@+id/tvAfficheurPeriodeDetailForfait"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+         android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text="affiche periode" />
-
+</LinearLayout>
+    <LinearLayout 
+    android:orientation="vertical" 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+       android:layout_marginTop="80dp"
+    >
    <TextView
        android:id="@+id/tTitreEtapeDetailForfait"
        android:layout_width="wrap_content"
@@ -50,7 +71,9 @@
        android:id="@+id/tvAfficheurEtapeDetailForfait"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="aff Etap" />
+         android:textColor="@color/blanc"
+        android:textStyle="italic"
+        android:text="aff Etap" />
 
    <TextView
        android:id="@+id/tvTitreSejourDetailForfait"
@@ -62,6 +85,8 @@
        android:id="@+id/tvAfficheurSejourDetailForfait"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+         android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text="affich de Sejour" />
 
    <TextView
@@ -74,6 +99,8 @@
        android:id="@+id/tvAfficheurRepasDetailForfait"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+         android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text="affich repas" />
 
    <TextView
@@ -86,6 +113,8 @@
        android:id="@+id/tvAfficheurDekmDetailForfait"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+           android:textColor="@color/blanc"
+        android:textStyle="italic"
        android:text="Affich  km" />
-
+</LinearLayout>
 </LinearLayout>

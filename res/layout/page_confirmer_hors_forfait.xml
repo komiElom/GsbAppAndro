@@ -2,19 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+     android:background="@color/noir"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/tVtitreSaisirNumerohors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/lemon"
         android:text="Saisir le numero de hors de Frais" />
 
     <EditText
         android:id="@+id/edSaisirNumerohorsSupprimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        />
 
     <Button
         android:id="@+id/bValidationHorsSupprimer"

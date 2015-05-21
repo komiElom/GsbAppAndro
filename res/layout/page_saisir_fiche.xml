@@ -2,28 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+     android:background="@color/noir"
     android:orientation="vertical" >
            <TextView
         android:id="@+id/tvTitreFicheFraisSaisirFiche"  
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Creation de la fiche de frais du mois" />
+         <LinearLayout 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="70dp"
+    >  
     
         <TextView
         android:id="@+id/tvTitreIdVisiteurSaisirFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+            android:textColor="@color/blanc"
         android:text="id du Visiteur" />
     
    <TextView
         android:id="@+id/tvAfficheurIdVisiteurSaisirFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Affiche l'ID du Visiteur" />
+        android:text="Affiche l'ID du Visiteur"
+        android:textColor="@color/orange"
+        android:textStyle="italic"
+         />
 
    <TextView
        android:id="@+id/tvTitreNomVisiteurSaisirFiche"
        android:layout_width="wrap_content"
+          android:textColor="@color/blanc"
        android:layout_height="wrap_content"
        android:text="Nom du Visiteur" />
 
@@ -31,19 +46,21 @@
        android:id="@+id/tvAfficheurNomVisiteurSaisirFiche"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+       android:textColor="@color/orange"
        android:text="affiche du Nom Visiteur" />
- 
+ </LinearLayout>
     <TextView
         android:id="@+id/tvTitrePeriodeSaisirFiche"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:textColor="@color/blanc"
         android:text="Saisi le mois de la Fiche" />
 
     <EditText
         android:id="@+id/edPeriodeSaisirFiche"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:ems="10"
+        android:layout_width="80dp"
         android:inputType="date" />
 
     <Button

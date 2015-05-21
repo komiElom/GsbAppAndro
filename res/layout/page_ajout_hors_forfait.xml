@@ -2,11 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/noir"
     android:orientation="vertical" >
-    
+       <LinearLayout 
+    android:orientation="vertical" 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="30dp"
+       android:layout_marginTop="6dp"
+    > 
     <TextView
         android:id="@+id/tTitreIdVisiteurAjouthorsF"
         android:layout_width="wrap_content"
+         android:textColor="@color/lemon"
         android:layout_height="wrap_content"
         android:text="id du Visiteur" />
 
@@ -15,41 +23,57 @@
         android:id="@+id/tvAfficheurIDAjouthorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Affiche l'ID du Visiteur" />
 
     <TextView
         android:id="@+id/tvTitreNomVisiteurAjouthorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+          android:textColor="@color/lemon"
         android:text="Nom Du Visiteur" />
 
     <TextView
         android:id="@+id/tvAfficheurDuNomVisiteurAjoutHorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text=" Aiifche nom du visteur" />
     
     <TextView
         android:id="@+id/tTitrePeriodeAjouthorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:textColor="@color/lemon"
         android:text="Periode" />
 
     <TextView
         android:id="@+id/tvAfficPeriodeAjouthorsF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blanc"
+        android:textStyle="italic"
         android:text="Afficheur du mois" />
-
+</LinearLayout>
     <TextView
         android:id="@+id/tIndicationAjouthorsF"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ajouter un frais  hors forfaitiser ou retour A l'acceuil" />
-
+        android:layout_height="wrap_content"  
+          android:textColor="@color/lemon"
+       android:layout_marginTop="20dp"
+    android:text="Ajouter un frais  hors forfaitiser ou retour A l'acceuil" />
+             <LinearLayout 
+    android:orientation="vertical" 
+    android:layout_gravity="center"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+     android:layout_marginTop="100dp"
+    >
     <Button
         android:id="@+id/bAjouterHorsFait"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Ajouter Hors Forfait" />
 
@@ -58,5 +82,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retour Acceuil" />
-
+</LinearLayout>
 </LinearLayout>
