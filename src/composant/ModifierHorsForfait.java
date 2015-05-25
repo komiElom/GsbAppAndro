@@ -8,7 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
-
+/**
+ * 
+ * @author  komi elom heekpo
+ * cette classe permet la modification d'une ligne de frais hors forfait
+ *
+ */
 public class ModifierHorsForfait extends Activity implements View.OnClickListener {
 	TextView afficheurIdvisteur , afficheurNomVisiteur , afficheurMois ;
 	EditText saisirDatehorsf , SaisirLibelleHors, SaisirMontanthors ;
@@ -17,7 +22,10 @@ public class ModifierHorsForfait extends Activity implements View.OnClickListene
 	String 	 leMoiSaisi  ;
 	String leNumeroSaisi ;
 	
-
+/**
+ * @see onCreate
+ * appel de la methode initialiser () 
+ */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -28,7 +36,9 @@ public class ModifierHorsForfait extends Activity implements View.OnClickListene
 	}
 
 	
-
+/**
+ * @see initialiser
+ */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		
@@ -51,6 +61,13 @@ public class ModifierHorsForfait extends Activity implements View.OnClickListene
 		
 		
 	}
+/**
+ * 	appel de la methode  afficheLigneHorsForfait
+ * <p>
+ * @param leNumeroSaisi : le numero saisi
+ * @return tableau lesHorsForfait []
+ * 
+ */
 	private void initialiserHorsForfait() {
 		// TODO Auto-generated method stub
 		try {
@@ -71,6 +88,12 @@ public class ModifierHorsForfait extends Activity implements View.OnClickListene
 		}
 		
 	}
+	/**
+	 * @param v View  :  vue bouton 
+	 * <p>  au declenchement du bouton bValidationSaisihorsF 
+	 * <p> appel de la methode miseAJourHorsForfait
+     * @param leIdSaisi,leMoisSaisi, laDateSaisi,leLibelleSaisi,leMontantSaisi, this.leNumeroSaisi
+	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

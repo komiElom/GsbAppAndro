@@ -9,14 +9,12 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * une Classe  de  gestion de base de donnée qui comprends
- * une classe d'implentation de base de donnée
- * des methodes d'implementation  des interrogations de la base 
- * 
- * 
+ *  * 
  * @author komi Elom Heekpo
- * @version 2014
- * @since 1.0
+ * * @since 1.0
+ * <p> une Classe  de  gestion de base de donnée qui comprends:
+ * <p>  - une classe d'implentation de base de donnée
+ * <p> -  des methodes d'implementation  des interrogations de la base 
  */
 public class GestionnaireBD {
 	//déclaration des variables des champs, des métadonnées de la base de données
@@ -75,16 +73,17 @@ public class GestionnaireBD {
 		 /**
 			 * contructeur de l'outil de creation de base de donnée
 			 * @param Context :  un objet contexte d'execution faisant appel à la class
-			 * definit le nom de la base de donnée,  et la version de la base de donnée
+			 * <p> definit le nom de la base de donnée,  et la version de la base de donnée
 			 *	 * 	 *  */
 		public ConnecteurBD(Context context) {
 		     super(context, NOM_DE_BASE_DE_DONNEE , null , VERSION_BASE_DONNEE);
 			// TODO Auto-generated constructor stub
 		}
 		/**
-	     *  c'est methode d'execution sql de la creation de la base de donnée
-	     *  cette méthode est la premiere méthode appellée après l'appel du contructeur
-	     *   une nouvelle version est crée et écrase la base existante à chaque ouverture de la base de donnée
+	     *  <p> c'est methode d'execution sql de la creation de la base de donnée
+	     * <p> cette méthode est la premiere méthode appellée après l'appel du contructeur
+	     * <p> lorsqu'une nouvelle version de la base de donnée est indiquée
+	     * <p> celle ci  écrase la base existante 
 	     * @param db :  un objet SQLiteDatabase fournit à default par la class SQLiteDatabase
 	     * @param oldVersion: le numero de l'ancienne version fournit à default par la class SQLiteDatabase,
 	     * cette valeur par default null , ou est la valeur d'une version existante
@@ -120,11 +119,11 @@ public class GestionnaireBD {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			// TODO Auto-generated method stub
-			/** sql de creation des tables  avec la méthode execSQL de l'objet db
+			/** <p> sql de creation des tables  avec la méthode execSQL de l'objet db
 			 * 
 			 */
 			/**
-			 * la première version créee   ne sera jamais prise en compte 
+			 * <p> la première version créee   ne sera jamais prise en compte 
 			 */
 			boolean premierVersion = false;
 			if (premierVersion  == true ){
@@ -155,25 +154,21 @@ public class GestionnaireBD {
 				//	  + COL_LIBELLE_FORFAIT + " TEXT NOT NULL);" ) ;
 			
 			}
-		
-			
-			
-			
-		}
+				}
 
 
 		 	 
 	 }
 	
 	 /**
-	  *  Declaration  'un objet de la class OutilDeDeBaseDeDonnee
+	  * <p>  Declaration  'un objet de la class ConnecteurBD 
 	  */
 	 private ConnecteurBD  NotreOutilBD  ;
 	 
 	 /**
-	  * méthode d'ouverture du système de Base de donnee
-	  *  instanciation de l'objet NotreOutilBD
-	  *  retourne la base de donnée en lecture
+	  * <p> méthode d'ouverture du système de Base de donnee
+	  * <p> instanciation de l'objet ConnecteurBD 
+	  *  @return retourne la base de donnée en lecture
 	  *  */
 	 public GestionnaireBD ouvrir () throws SQLException  {
 		 NotreOutilBD = new ConnecteurBD (ContexteDExecution ) ;
@@ -182,7 +177,7 @@ public class GestionnaireBD {
 		 
 	 }
 	 /**
-	  * méthode de fin de connection de avec de système base
+	  * <p> méthode de fin de connection de avec de système base
 	  * @return la  fermeture du systeme de Base de donnée
 	  */
 	public void fermer () {
@@ -195,7 +190,7 @@ public class GestionnaireBD {
 	 * @param id_visit : id du visiteur 
 	 * @param String prenom_visit : prenom  du visiteur
 	 * @param String nom_visit : le nom du visiteur
-	 * return vrai si  la méthode insert de l'objet gSbBaseDeDonnee 
+	 * @return vrai si  la méthode insert de l'objet requeteurBaseGsb
 	 */
 	public long inscriptionVisiteur (String id_visit , String prenom_visit , 
 		String nom_visit,  String mot_de_pass_visit ) {
@@ -208,6 +203,13 @@ public class GestionnaireBD {
 		
 		return 	requeteurBaseGsb.insert(TABLE_VISITEUR,null, conteneurDeValeur);
 	}
+	/**
+	 * <p> methode permettant l'authentification de l'utilisateur
+	 * @param leIdSaisi : id saisi
+	 * @param leMotSaisi: mot de pass saisi
+	 * @return tableau lesIdentites [] si requete sql a un succes , sinon null
+	 * @throws SQLException
+	 */
 	public String [] SeConnecter  (String leIdSaisi, String leMotSaisi) throws SQLException {
 		// TODO Auto-generated method stub
 	 String selectionColonne [] = new String [] {COL_ID_VISITEUR , COL_MOT_DE_PASS , COL_NOM_VISITEUR};
@@ -226,6 +228,17 @@ public class GestionnaireBD {
 		return null   ;
 		  
 	}
+	/**
+	 * <p> methode permettant d'enregistrer les elements de frais forfait
+	 * @param leIDSaisi
+	 * @param leMoisSaisi
+	 * @param leKmSaisi
+	 * @param leSejourSaisi
+	 * @param leRepasSaisi
+	 * @param leEtapeSaisi
+	 * @return long 1 
+	 * @throws SQLException
+	 */
 	public long enregistrerForfait(String leIDSaisi, String leMoisSaisi,
 			String leKmSaisi, String leSejourSaisi, String leRepasSaisi, String leEtapeSaisi) throws SQLException {
      
@@ -264,6 +277,13 @@ public class GestionnaireBD {
 	
 		
 	}
+	/**
+	 * methode permettant de veriifier si une fiche existe pour un mois donnée
+	 * @param leIDSaisi
+	 * @param leMoisSaisi
+	 * @return String retourValeurDemois
+	 * @throws SQLException
+	 */
 	public String existeFrais(String leIDSaisi, String leMoisSaisi) throws SQLException {
 		// TODO Auto-generated method stub
 		 String selectionColonne [] = new String [] {COL_ID_VISITEUR_FICHE_FRAIS, COL_MOIS_FICHE_DE_FRAIS, COL_ID_ETAT_FICHE_FRAIS} ;
@@ -284,6 +304,16 @@ public class GestionnaireBD {
 			curseurDeLecture.close();	
 		  return "";
 		}
+	/**
+	 * <p> methode permettant d'enregistrer le frais hors forfait 
+	 * @param leIdSaisi
+	 * @param leMoisSaisi
+	 * @param laDateSaisi
+	 * @param leLibelleSaisi
+	 * @param leMontantSaisi
+	 * @return long 1
+	 * @throws SQLException
+	 */
 	public long enregistrerHorsForfait(String leIdSaisi, String leMoisSaisi,
 			String laDateSaisi, String leLibelleSaisi, String leMontantSaisi) throws SQLException {
 		// TODO Auto-generated method stub
@@ -298,7 +328,13 @@ public class GestionnaireBD {
 	}
 	
 	
-	
+	/**
+	 * <p> methode permettant de d'afficher les elements d'une fiche de frais
+	 * @param leMoiSaisi
+	 * @param leIdSaisi
+	 * @return tableau String ficheSelectionne 
+	 * @throws SQLException
+	 */
 	
 	public String[] afficherFiche(String leMoiSaisi, String leIdSaisi)  throws SQLException {
 		// TODO Auto-generated method stub
@@ -325,6 +361,13 @@ public class GestionnaireBD {
 		  curseurDeLecture.close() ;
 		return null;
 	}
+	/**
+	 * <p> methode permettant d'afficher une ligne de frais forfaitisée
+	 * @param leIdSaisi
+	 * @param leMoisSaisi
+	 * @return String listeLigneforfait [] 
+	 * @throws SQLException
+	 */
 	public String [] afficheForfait (String leIdSaisi, String leMoisSaisi) throws SQLException {
 		// TODO Auto-generated method stub
 		String colonneSelectionne [] = { COL_ID_VISITEUR_LIGNE_FORFAIT ,COL_MOIS_LIGNE_FORFAIT  ,COL_ID_LIGNE_FORFAIT , COL_QTE_LIGNE_FRAIS } ;
@@ -373,6 +416,16 @@ public class GestionnaireBD {
 		String fff [] = {faux ,faux ,faux ,faux} ;
 		return fff ;
 	}
+	/**
+	 * <p> methode permettant de proceder à la mise à jour d'une ligne de frais forfaitiser 
+	 * @param leIDSaisi
+	 * @param leMoisSaisi
+	 * @param leEtapeSaisi
+	 * @param leSejourSaisi
+	 * @param leRepasSaisi
+	 * @param leKmSaisi
+	 * @return void 
+	 */
 	public void miseAjourForfait(String leIDSaisi, String leMoisSaisi, String leEtapeSaisi , String leSejourSaisi, String leRepasSaisi , String leKmSaisi) {
 		// TODO Auto-generated method stub
 		
@@ -414,7 +467,13 @@ public class GestionnaireBD {
 					        " AND " +  COL_MOIS_LIGNE_FORFAIT + "=?"  , uneClauseEtape) ;
 		
 	}
-	
+	/**
+	 * <p> methode permettant d'afficher une ligne de frais hors forfait
+	 * @param leIdSaisi
+	 * @param leMoiSaisi
+	 * @return String resultat
+	 * @throws SQLException
+	 */
 	public String  afficherHorsForfait (String leIdSaisi ,String  leMoiSaisi) throws SQLException  {
 		 String SelectionnColonne [] = {COL_NUM_HORS_FORFAIT,COL_DATE_HORS_FORFAIT,COL_LIBELLE_HORS_FORFAIT ,
 		    COL_MONTANT_HORS_FORFAIT } ;
@@ -437,13 +496,23 @@ public class GestionnaireBD {
 		return "rien" ;
 		
 	}
-	
+	/**
+	 * methode permettant la supprression d'une ligne de frais forfaitiser 
+	 * @param numeroHorsForfait
+	 * @throws SQLException
+	 */
 	public void supprimerHorsforfait(String numeroHorsForfait) throws SQLException  {
 		// TODO Auto-generated method stub
 	      String parametreDelaClause [] = {numeroHorsForfait};
 		requeteurBaseGsb.delete(TABLE_HORS_FORFAIT, COL_NUM_HORS_FORFAIT + "=?", parametreDelaClause  );
 		
 	}
+	/**
+	 * methode permettant la supression d'une fiche de frais
+	 * @param leIdSaisi
+	 * @param leMoiSaisi
+	 * @throws SQLException
+	 */
 	public void suppimerFiche(String leIdSaisi, String leMoiSaisi) throws SQLException  {
 		// TODO Auto-generated method stub
 		 String parametreDelaClause [] = {leIdSaisi, leMoiSaisi };
@@ -457,6 +526,12 @@ public class GestionnaireBD {
 				   COL_MOIS_FICHE_DE_FRAIS +  "=?" , parametreDelaClause);
 		 
 	}
+	/**
+	 * methode permettant d'afficher une ligne de frais forfaitisé
+	 * @param leNumeroSaisi
+	 * @return  String  resultat [] 
+	 * @throws SQLException
+	 */
 	public String[] afficheLigneHorsForfait(String leNumeroSaisi)throws SQLException {
 		// TODO Auto-generated method stub
 		String SelectionnColonne [] = {COL_NUM_HORS_FORFAIT,COL_DATE_HORS_FORFAIT,COL_LIBELLE_HORS_FORFAIT ,
@@ -480,6 +555,16 @@ public class GestionnaireBD {
 		cuseurDeLecture.close() ;	
 		return null;
 	}
+	/**
+	 * methode permettant la mise à jour de frais hors forfaitisé
+	 * @param leIdSaisi
+	 * @param leMoisSaisi
+	 * @param laDateSaisi
+	 * @param leLibelleSaisi
+	 * @param leMontantSaisi
+	 * @param leNumeroSaisi
+	 * @return 1
+	 */
 	public long miseAJourHorsForfait(String leIdSaisi, String leMoisSaisi,
 			String laDateSaisi, String leLibelleSaisi, String leMontantSaisi,
 			String leNumeroSaisi)  {

@@ -10,6 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+/**
+ * 
+ * @author  komi elom heekpo
+ * cette classe permet la presentation de la fiche à consulter 
+ *
+ */
 public class ConsulFiche extends Activity implements View.OnClickListener {
 	
 
@@ -18,6 +24,10 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 	Button bouttonDetailForfait , bouttonDetailHors ;
 	String leMoiSaisi ;
 	String lesIdentites [] ;
+	/**
+	 * @see onCreate
+	 * appel de la methode initialiserFiche
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -28,7 +38,9 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 		
 	}
 
-	
+	/**
+	 * @see initialiser ()
+	 */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		this.afficheuridVisiteur = (TextView) this.findViewById(com.gsb.R.id.tvAfficheurIdVisiteurConsultatFiche);
@@ -49,7 +61,11 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 	  	this.bouttonDetailHors.setOnClickListener(this);	
 		
 	}
-	
+	/**
+	 * appel de la methode afficherFiche
+	 * @param leMoiSaisi : le moi saisi 
+	 * @param this.afficheuridVisiteur.getText().toString() :le id du visiteur
+	 */
 	private void initialiserFiche() {
 		// TODO Auto-generated method stub
 		GestionnaireBD   unGestionnaire = new GestionnaireBD (this) ;
@@ -86,7 +102,17 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 		
 	}
 
-
+/**
+ * @param v View :vue bouton 
+ * <p> si le bouton bDetailForfaitiserConsultatFiche est actionné :
+ * <p> l'activité DetailForfait démarre 
+ * <p> l'activité en cours s'arrete 
+ * <p> au contraire si le bouton  bDetailsHorsForfaitConsultatFiche  est cliqué
+ * <p> l'activité en cours s'arrete 
+ * <p> l'activité DetailHorsForfait démarre
+ * 
+ * 
+ */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -118,7 +144,12 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 	}
 	
 	
-	
+	/**
+	 * @param menu Menu
+	 * <p> appel de la methode inflate
+	 * @param supprim_fiche menu
+	 * @return true
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
@@ -126,6 +157,16 @@ public class ConsulFiche extends Activity implements View.OnClickListener {
 		propulseurDeMenu.inflate(com.gsb.R.menu.supprim_fiche, menu) ;
 		return true ;
 	}
+	/**
+	 * @param item MenuItem 
+	 * <p> si le menu MenueSupprimerFiche est actionné
+	 * <p> appel de la methode suppimerFiche
+	 * @param this.lesIdentites[0] : l'id du visiteur 
+	 * <p>
+	 * @param this.leMoiSaisi :  le mois choisi 
+	 * @return false 
+	 * 
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub

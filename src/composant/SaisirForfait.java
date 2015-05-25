@@ -1,5 +1,6 @@
 package composant;
 import android.app.Activity ;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +8,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View ;
+
+
+/**
+ * 
+ * @author komi elom heekpo
+ * <p> Cette classe permet la saisie des quantites frais forfatisés
+ *
+ */
 public class SaisirForfait extends Activity implements View.OnClickListener{
 	
 	TextView afficheurDeIdvisiteur , afficheurDeNomvisiteur , afficheurMois;
 	EditText  SaisirKm, SaisirSejour, SaisirRepas , SaisirEtape ;
 	Button validerficher ;
-
+/**
+ * @see onCreate
+ */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -33,6 +44,12 @@ public class SaisirForfait extends Activity implements View.OnClickListener{
 		
 	}
 
+	/**
+	 * @see initialiser ()
+	 * <p> implemente la variable des vues de l'objet de la mise en page
+	 * 
+	 * 
+	 * 	 */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		this.afficheurDeIdvisiteur = (TextView) this.findViewById(com.gsb.R.id.tvAfficheurIDSaisirforfait);
@@ -50,6 +67,17 @@ public class SaisirForfait extends Activity implements View.OnClickListener{
 		
 	}
 
+	/**
+	 * 
+	 * <p> 
+	 * @param v View : une vue 
+	 * <p> s'il s'agit d'une du bouton bValidSaisirforfait :
+	 * <p> une verification est faite concernant les saisies puis , les élements sont envoyés à la base de donnée
+	 * <p> l'activite encours s'arrete : 
+	 * <p> les identités utilisateurs sont mises dans un paquet (intent)
+	 * <p> l'activité en cours s'arrete ,l'activité  AjoutHorsF est démarrée pour la saisies des frais hors forfaits
+	 * 
+	 * 	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

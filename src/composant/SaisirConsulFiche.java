@@ -7,12 +7,19 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+/**
+ * 
+ * @author  komi elom heekpo
+ * <p>  cette classe permet la saisie de la période de la fiche a consulter 
+ *
+ */
 public class SaisirConsulFiche extends Activity implements  View.OnClickListener {
 	TextView afficheurDeIdvisiteur , afficheurDeNomvisiteur ;
 	Button bouttonSuivant ;
 	EditText SaisirMois ;
-
+/**
+ * @see onCreate 
+ */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -26,6 +33,9 @@ public class SaisirConsulFiche extends Activity implements  View.OnClickListener
 	    this.afficheurDeNomvisiteur.setText(lesIndentites[1] );
 	}
 
+	/**
+	 * @see initialiser() 
+	 */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		this.afficheurDeIdvisiteur = (TextView) this.findViewById(com.gsb.R.id.tvAfficheurIdVisiteurSaisirFiche);
@@ -37,6 +47,14 @@ public class SaisirConsulFiche extends Activity implements  View.OnClickListener
 		
 	}
 
+	/**
+	 * @param v View : vue bouton ;
+	 * <p> lors du clique du bouton bSuivantSaisirFiche 
+	 * <p> les données sont mises en paquet (intent) , démarrage de l'actvité  ConsulFiche
+	 * <p> pour la consultation proprement dite
+	 * 
+	 * 
+	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

@@ -15,6 +15,9 @@ public class ModifierForfait  extends Activity  implements View.OnClickListener{
 	String leMoisSaisi ;
 	String lesIdentites [] ;
 
+	/**
+	 * @see onCreate
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -24,7 +27,10 @@ public class ModifierForfait  extends Activity  implements View.OnClickListener{
 	}
 
 
-
+/**
+ * @see initialiser
+ * implementation des variables de vues de l'objet de mise en page : page_saisir_forfait
+ */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		this.afficheurIdVisiteur = (TextView) this.findViewById(com.gsb.R.id.tvAfficheurIDSaisirforfait) ;
@@ -55,7 +61,14 @@ public class ModifierForfait  extends Activity  implements View.OnClickListener{
 		
 	}
 
-
+/**
+ * @param v View : 
+ * <p>  si le bouton bValidSaisirforfait  est actionné 
+ * <p> appel de la methode miseAjourForfait 
+ * @param  lesIdentites[0],this.leMoisSaisi,etapSaisi ,sejourSaisi ,repasSaisi, kmSaisi
+ * @return false 
+ * 
+ */
 
 	@Override
 	public void onClick(View v) {

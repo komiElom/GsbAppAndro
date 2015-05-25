@@ -7,12 +7,23 @@ import android.widget.Button;
 import android.widget.TextView;
 import  android.view.View;
 
+/**
+ * 
+ * @author   komi  elom heekpo 
+ * <p>  cette classe permet dde choisir la saisie des frais hors forfaitisés
+ * <p> ou un retour vers l 'acceuil
+ *
+ */
 public class AjoutHorsF extends Activity implements View.OnClickListener {
 	
 	TextView afficheurIdVisiteur , afficheurNom, afficheurDuMois ;
 	Button  retourAcceuil, ajouterHors ;
 	
-	
+	/**
+	 * @see onCreate
+	 * <p> implementation des variables de vues 
+	 * <p> mise en place des identités reçues de l'activité précédente
+	 */
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +52,12 @@ public class AjoutHorsF extends Activity implements View.OnClickListener {
 	       this.afficheurDuMois.setText(leMoisSaisi);
 	}
 
+	/**
+	 * si le bouton bAjouterHorsFait est saisi , 
+	 * <p> les identités utilisateurs sont mises dans un paquet (intent) 
+	 * <p> l'actvité SaisirHorsF est démarré pour la saisie proprement dite
+	 * <p> si le bouton bRetourAcceuilAjoutHorsFor est actioné , l'activité en cours s'arrete
+	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

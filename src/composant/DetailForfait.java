@@ -7,7 +7,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+/**
+ * 
+ * @author  komi elom heekpo 
+ * cette classe présente le détail des frais forfaitisés
+ *
+ */
 public class DetailForfait  extends Activity {
 
 	
@@ -18,7 +23,10 @@ public class DetailForfait  extends Activity {
 	String leMoiSaisi ;
 	String lesIdentites  [] ;
 	
-
+/**
+ * @see onCreate
+ * appel de la methode initialiserforfait
+ */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -28,7 +36,12 @@ public class DetailForfait  extends Activity {
 		initialiserforfait();
 	}
 
-	
+	/**
+	 * @see initialiser
+	 * implementation des variables  de la vue de l'objet de mise en page: page_consultat_forfait
+	 * <p>
+	 * @return void 
+	 */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		 this.afficheurIdVisiteur = (TextView) this.findViewById(com.gsb.R.id.tvAfficheuriDVisteurDetailForfait) ;
@@ -49,7 +62,14 @@ public class DetailForfait  extends Activity {
 		 
 		
 	}
-	
+	/**
+	 * appel de la methode  afficheForfait ()
+	 * {@link afficheForfait } 
+	 * <p> 
+	 * @param this.afficheurIdVisiteur.getText().toString() : id du visiteur 
+	 * @param leMoiSaisi : le moi saisi
+	 * @return tableau ligneForfait[] 
+	 */
 	private void initialiserforfait() {
 		// TODO Auto-generated method stub
 			
@@ -62,6 +82,12 @@ public class DetailForfait  extends Activity {
 	     this.afficheurNombreRepas.setText(ligneForfait[2])  ;
 	     this.afficheurNombreKm.setText(ligneForfait[3]) ;
 	}
+	/**
+	 * @param menu Menu 
+	 * <p> appel methode inflate () 
+	 * @param modifierforfait : menu
+	 * @return true
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
@@ -71,6 +97,17 @@ public class DetailForfait  extends Activity {
 		
 	}
 
+	/**
+	 *  @param item MenuItem 
+	 *  si le menu MenModierForfait est selectionné
+	 *  <p> recuperation des elements de  frais forfait dans un tableau : listeModifier []
+	 *  <p> mise en paquet du tableau listeModifier []
+	 *  <p> mis en paquet des identités de l'utilisateur 
+	 *  <p> l'activité ModifierForfait est démarréé avec le  paquet 
+	 *  <p>  l'actvitév en cours s'arrete
+	 *  
+	 * @return false 
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub

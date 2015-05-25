@@ -9,6 +9,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
 
+/**
+ * 
+ * @author  komi elom  heekpo 
+ * <p> cette classe permet la saisie des frais hors forfaitisés
+ *
+ */
 public class SaisirHorsF   extends Activity implements View.OnClickListener {
 	TextView afficheurIdvisteur , afficheurNomVisiteur , afficheurMois ;
 	EditText saisirDatehorsf , SaisirLibelleHors, SaisirMontanthors ;
@@ -16,7 +22,9 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
     String lesIdentites [] ;
 	String 	 leMoiSaisi  ;
 	
-
+/**
+ * @see onCreate
+ */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -24,7 +32,9 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 		this.setContentView(com.gsb.R.layout.page_saisir_frais_horsforfai) ;
 		initialiser() ;
 	}
-
+/**
+ * @see initialiser ()
+ */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		
@@ -46,7 +56,17 @@ public class SaisirHorsF   extends Activity implements View.OnClickListener {
 		
 		
 	}
-
+/**
+ * @param v View : vue bouton
+ * <p> le déclenchement  du bouton bValidationSaisihorsF
+ * <p> entraine la récupération des données saisies ,
+ * <p> l'appel de la méthode enregistrerHorsForfait ()
+ * <p> {@link enregistrerHorsForfait } enregistrerHorsForfait ()
+ * @param leIdSaisi,leMoisSaisi, laDateSaisi,leLibelleSaisi,leMontantSaisi
+ * @return long 
+ * <p> les données sont saisies , l'activité en cours s'acheve retour vers l'activité AjoutHorsF
+ * 
+ */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

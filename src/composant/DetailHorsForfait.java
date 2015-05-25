@@ -9,12 +9,23 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+/**
+ * 
+ * @author komi elom heekpo
+ * <p> cette classe permet de presenter le détail des frais hors forfaitisés
+ *
+ */
 public class DetailHorsForfait  extends Activity {
 
 	TextView  afficheurIdVisiteur , afficheurNom , afficheurDateHorsFrais, afficheurLibelle, afficheurMontant , afficheurListe ;
 	String leMoisSaisi ;
 	String lesIdentites [] ;
     
+	
+	/**
+	 * @see onCreate
+	 * <p> appel de la methode initialiserHorsForfait 
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -24,7 +35,9 @@ public class DetailHorsForfait  extends Activity {
 		initialiserHorsForfait () ;
 		}
 
-
+/**
+ * @see initialiser
+ */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		this.afficheurListe =  (TextView) this.findViewById(com.gsb.R.id.tVlisteHorsFrais) ;
@@ -37,6 +50,12 @@ public class DetailHorsForfait  extends Activity {
 		
 	}
 	
+	/**
+	 * appel de la methode afficherHorsForfait
+	 * @param this.lesIdentites[0] : le id utilisateur
+	 * @param leMoisSaisi : le mois saisi
+	 * @return void 
+	 */
 	private void initialiserHorsForfait() {
 		// TODO Auto-generated method stub
 		try {
@@ -57,6 +76,12 @@ public class DetailHorsForfait  extends Activity {
 			 this.finish() ;
 		}
 	}
+	/**
+	 * @param menu Menu 
+	 * <p> appel de la methode inflate
+	 * @param modifierhorsfra : menu
+	 * @return true
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
@@ -65,7 +90,16 @@ public class DetailHorsForfait  extends Activity {
 		  
 		return true ;
 	}
-
+/**
+ * @param item MenuItem 
+ * <p> si le menu MenuModifierHors est choisi 
+ * <p> l'activité ChoixDuHorsForfait est démarrée 
+ * <p> l'activité en cours est arretée
+ * <p> si le menu MenSupprimerHors  choisi
+ * <p> l'activité est démarrée SuprimerHorsForfait
+ * <p> l'activité en cours est arretée
+ * 
+ */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub,
@@ -83,7 +117,7 @@ public class DetailHorsForfait  extends Activity {
 			break;
 			
 		case com.gsb.R.id.MenSupprimerHors :
-			  Intent objectif_sur_b = new  Intent (DetailHorsForfait.this, composant.ChoixDuHorsForfait.class) ;
+			  Intent objectif_sur_b = new  Intent (DetailHorsForfait.this, composant.SuprimerHorsForfait.class) ;
 			   objectif_sur_b.putExtras(envoiDePaquet) ;
 			   this.startActivity(objectif_sur_b);
 			   this.finish();			    

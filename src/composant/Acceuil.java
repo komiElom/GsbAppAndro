@@ -1,5 +1,4 @@
 package composant;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,11 +6,23 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
 
+/**
+ * @author komi elom  heekpo
+ * <p>
+ * Cette class  "Acceuil" presente  la page d'acceuil ;
+ * <p>
+ * la page d'acceuil montre à l'utilisateur les principales tâches de l'application
+ * <p>
+ * Saisir   / consulter les notes de frais
+ * 
+ */
 public class Acceuil extends Activity implements View.OnClickListener {
 	
 	TextView AfficheurIdVisiteur , afficheurNomVisiteur;
 	Button bouttonCreerFiche   , bouttonConsulterFiche ;
-
+/**
+ * @see oncCreate
+ */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -25,6 +36,10 @@ public class Acceuil extends Activity implements View.OnClickListener {
 		AfficheurIdVisiteur.setText(lesIdentites[1]) ;
 		
 	}
+	/**
+	 * @see {@link initialiser()}
+	 * @return 
+	 */
 
 	private void initialiser() {
 		// TODO Auto-generated method stub
@@ -37,6 +52,17 @@ public class Acceuil extends Activity implements View.OnClickListener {
 		
 	}
 
+	/**
+	 * {@link onClick(View v) }
+	 * <p>
+	 * @param v View : une vue 
+	 * <p> 
+	 * s'execute si le bouton bCreerFAcceuil a été cliqué
+	 * <p> les identités de l'utilisateur sont  affectés dans un paquet (intend )
+	 * <p>  l'actvité SaisirFiche est démarrée avec le paquet des identités utilisateur
+	 * <p> ou sinon si le bouton bconsulterFAcceuil est cliqué   alors  
+	 * <p>  c'est l'actvité SaisirConsulFiche  démarre 
+	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

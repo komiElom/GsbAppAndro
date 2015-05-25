@@ -7,7 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View ;
-
+/**
+ * 
+ * @author komi elom heekpo
+ * cette classe permet la suppression de ligne de frais  hors forfait 
+ *
+ */
 public class SuprimerHorsForfait extends Activity implements View.OnClickListener {
 	 TextView afficheurNumeroHorsFrais ;
 	 EditText SaisirNumero ;
@@ -15,6 +20,9 @@ public class SuprimerHorsForfait extends Activity implements View.OnClickListene
 	String leMoisSaisi ;
 	String lesIdentites  [];
 
+	/**
+	 * @see onCreate
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -26,7 +34,9 @@ public class SuprimerHorsForfait extends Activity implements View.OnClickListene
 		
 	}
 
-
+/**
+ * @see initialiser
+ */
 	private void initialiser() {
 		// TODO Auto-generated method stub
 		this.SaisirNumero = (EditText) this.findViewById(com.gsb.R.id.edSaisirNumerohorsSupprimer) ;
@@ -40,6 +50,12 @@ public class SuprimerHorsForfait extends Activity implements View.OnClickListene
 		
 	}
 
+	/**
+	 * @param v View 
+	 * <p> au declenchement du bouton bValidationHorsSupprimer ,
+	 * <p> l'appel de la methode supprimerHorsforfait() 
+	 * @param this.SaisirNumero.getText().toString() : le numero de hors de frais saisir
+	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub	
