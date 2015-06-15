@@ -7,7 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View ;
-
+/**
+ * 
+ * @author komi elom heekpo
+ * <p> cette classe permet de modifier les lignes de frais forfait
+ *
+ */
 public class ModifierForfait  extends Activity  implements View.OnClickListener{
 	TextView afficheurIdVisiteur, afficheurNom, afficheurMois ;
 	EditText  SaisirEtape, SaisirSejour, SaisirRepas , SaisirKm;

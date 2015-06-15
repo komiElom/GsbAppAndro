@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+encoding//src/composant/Acceuil.java=UTF-8
+encoding//src/composant/AjoutHorsF.java=UTF-8
+encoding//src/composant/ChoixDuHorsForfait.java=UTF-8
+encoding//src/composant/ConsulFiche.java=UTF-8
+encoding//src/composant/DetailForfait.java=UTF-8
+encoding//src/composant/DetailHorsForfait.java=UTF-8
+encoding//src/composant/GestionnaireBD.java=UTF-8
+encoding//src/composant/Login.java=UTF-8
+encoding//src/composant/ModifierForfait.java=UTF-8
+encoding//src/composant/SaisirConsulFiche.java=UTF-8
+encoding//src/composant/SaisirFiche.java=UTF-8
+encoding//src/composant/SaisirForfait.java=UTF-8
+encoding//src/composant/SaisirHorsF.java=UTF-8
+encoding//src/composant/SuprimerHorsForfait.java=UTF-8
